@@ -1,0 +1,6 @@
+D:\visual studio2022 project\QUANLYNHANSU\DataLayer\bin\Debug\DataLayer.dll
+D:\visual studio2022 project\QUANLYNHANSU\DataLayer\bin\Debug\DataLayer.pdb
+D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.dll
+D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.pdb

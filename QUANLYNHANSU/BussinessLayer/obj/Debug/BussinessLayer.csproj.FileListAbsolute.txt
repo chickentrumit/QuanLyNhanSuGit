@@ -1,0 +1,9 @@
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\bin\Debug\BussinessLayer.dll
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\bin\Debug\BussinessLayer.pdb
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\obj\Debug\BussinessLayer.csproj.AssemblyReference.cache
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\obj\Debug\BussinessLayer.csproj.CoreCompileInputs.cache
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\obj\Debug\BussinessLayer.dll
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\obj\Debug\BussinessLayer.pdb
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\bin\Debug\DataLayer.dll
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\bin\Debug\DataLayer.pdb
+D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\obj\Debug\BussinessLayer.csproj.CopyComplete

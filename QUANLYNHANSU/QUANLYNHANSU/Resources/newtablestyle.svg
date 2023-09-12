@@ -1,0 +1,14 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="NewTableStyle" style="enable-background:new 0 0 32 32">
+  <style type="text/css">
+	.Blue{fill:#1177D7;}
+	.Black{fill:#727272;}
+	.Yellow{fill:#FFB115;}
+	.st0{opacity:0.5;}
+</style>
+  <g class="st0">
+    <path d="M0,20h8v6H0V20z M10,26h8v-6h-8V26z M20,12v6h8v-6H20z M20,26h8v-6h-8V26z" class="Black" />
+  </g>
+  <path d="M0,4h8v6H0V4z M0,18h8v-6H0V18z M10,10h8V4h-8V10z M10,18h8v-6h-8V18z" class="Blue" />
+  <polygon points="25,2 27,0 27,3 30,3 28,5 30,7 27,7 27,10 25,8 23,10 23,7 20,7 22,5 20,3 23,3 23,0 " class="Yellow" />
+</svg>

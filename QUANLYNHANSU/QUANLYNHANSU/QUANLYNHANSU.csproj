@@ -1,0 +1,951 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BCB985C6-B187-4E23-93B9-26C80D232848}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QUANLYNHANSU</RootNamespace>
+    <AssemblyName>QUANLYNHANSU</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v22.2" />
+    <Reference Include="DevExpress.Data.Desktop.v22.2" />
+    <Reference Include="DevExpress.Data.v22.2" />
+    <Reference Include="DevExpress.Mvvm.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v22.2.Core" />
+    <Reference Include="DevExpress.Utils.v22.2" />
+    <Reference Include="DevExpress.XtraBars.v22.2" />
+    <Reference Include="DevExpress.Sparkline.v22.2.Core" />
+    <Reference Include="DevExpress.XtraEditors.v22.2" />
+    <Reference Include="DevExpress.Drawing.v22.2" />
+    <Reference Include="DevExpress.XtraGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v22.2.Core.Desktop, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmBHXH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBHXH.Designer.cs">
+      <DependentUpon>frmBHXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBHYT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBHYT.Designer.cs">
+      <DependentUpon>frmBHYT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChamCongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChamCongNhanVien.Designer.cs">
+      <DependentUpon>frmChamCongNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChucVu.Designer.cs">
+      <DependentUpon>frmChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangKy.Designer.cs">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDieuChuyenNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDieuChuyenNhanVien.Designer.cs">
+      <DependentUpon>frmDieuChuyenNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoiMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiMail.Designer.cs">
+      <DependentUpon>frmDoiMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHopDongLaoDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHopDongLaoDong.Designer.cs">
+      <DependentUpon>frmHopDongLaoDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHuongDanPhanMem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHuongDanPhanMem.Designer.cs">
+      <DependentUpon>frmHuongDanPhanMem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKhenThuongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhenThuongNhanVien.Designer.cs">
+      <DependentUpon>frmKhenThuongNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKyLuatNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKyLuatNhanVien.Designer.cs">
+      <DependentUpon>frmKyLuatNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoaiCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiCa.Designer.cs">
+      <DependentUpon>frmLoaiCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoaiCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiCong.Designer.cs">
+      <DependentUpon>frmLoaiCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainForm.Designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhanVien.Designer.cs">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhanQuyenTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhanQuyenTaiKhoan.Designer.cs">
+      <DependentUpon>frmPhanQuyenTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhongBan.Designer.cs">
+      <DependentUpon>frmPhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhuCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhuCap.Designer.cs">
+      <DependentUpon>frmPhuCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhuCapNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhuCapNhanVien.Designer.cs">
+      <DependentUpon>frmPhuCapNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyCauHinhChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyCauHinhChung.Designer.cs">
+      <DependentUpon>frmQuanLyCauHinhChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyTaiKhoan.Designer.cs">
+      <DependentUpon>frmQuanLyTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuenMatKhau.Designer.cs">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTangLuongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTangLuongNhanVien.Designer.cs">
+      <DependentUpon>frmTangLuongNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThangChucNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThangChucNhanVien.Designer.cs">
+      <DependentUpon>frmThangChucNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThoiViecNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThoiViecNhanVien.Designer.cs">
+      <DependentUpon>frmThoiViecNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTroGiupPhanMem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTroGiupPhanMem.Designer.cs">
+      <DependentUpon>frmTroGiupPhanMem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUngLuongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUngLuongNhanVien.Designer.cs">
+      <DependentUpon>frmUngLuongNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoiMatKhauMoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiMatKhauMoi.Designer.cs">
+      <DependentUpon>frmDoiMatKhauMoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXepCaNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXepCaNhanVien.Designer.cs">
+      <DependentUpon>frmXepCaNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXoaTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXoaTaiKhoan.Designer.cs">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBHXH.resx">
+      <DependentUpon>frmBHXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBHYT.resx">
+      <DependentUpon>frmBHYT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChucVu.resx">
+      <DependentUpon>frmChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangKy.resx">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoiMail.resx">
+      <DependentUpon>frmDoiMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoiMatKhauMoi.resx">
+      <DependentUpon>frmDoiMatKhauMoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKhenThuongNhanVien.resx">
+      <DependentUpon>frmKhenThuongNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKyLuatNhanVien.resx">
+      <DependentUpon>frmKyLuatNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiCa.resx">
+      <DependentUpon>frmLoaiCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiCong.resx">
+      <DependentUpon>frmLoaiCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainForm.resx">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhanVien.resx">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhongBan.resx">
+      <DependentUpon>frmPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhuCap.resx">
+      <DependentUpon>frmPhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyCauHinhChung.resx">
+      <DependentUpon>frmQuanLyCauHinhChung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyTaiKhoan.resx">
+      <DependentUpon>frmQuanLyTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuenMatKhau.resx">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXoaTaiKhoan.resx">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newgroup_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newgroup_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewallowuserstoeditranges_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewallowuserstoeditranges_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newitem_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newitem_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newtablestyle.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocustomer_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocustomer_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boposition2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boposition2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinessLayer\BussinessLayer.csproj">
+      <Project>{dff2af75-05b5-4db2-b039-8211808a7796}</Project>
+      <Name>BussinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{8dde42f8-424a-4fb0-96c0-de805cecb4d1}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boorderitem_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boorderitem_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boscheduler_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boscheduler_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newitem_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newitem_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boresume_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boresume_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business_dollar.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borules_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borules_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currency.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\assigntome_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\assigntome_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top10percent.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walking_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walking_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\switchtimescalesto_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\switchtimescalesto_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formatastable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formatastable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formatastable.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_sale.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tableproperties.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocontact_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocontact_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knowledgebasearticle_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knowledgebasearticle_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x328.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x328.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x328.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x328.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x328.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x328.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x3210.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x3210.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x1610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x3210.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x1610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x3210.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x1610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x3210.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x1610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x3210.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x1610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x3211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x1610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x3211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x1611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x3211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x1611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_32x3211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16x1611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_32x3211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveto_16x1611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_32x3211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveandclose_16x1611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x3212.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x1611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boresume_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boresume_16x161.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
