@@ -1,6 +1,7 @@
 ﻿using DataLayer.model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,38 @@ namespace BussinessLayer
                     }
                 }
             }
-            
+        }
+        public void DeleteEmployeeAllowanceJob(int EmployeeAllowanceJobId)
+        {
+
+            using (var conn = new DBcontext())
+            {
+                using (var transaction = conn.Database.BeginTransaction())
+                {
+
+                    try
+                    {
+
+                        var EmployeeAllowanceJobToDelete = conn.tb_EmployeeAllowanceJob.FirstOrDefault(j => j.EmployeeAllowanceJobID == EmployeeAllowanceJobId);
+                        if (EmployeeAllowanceJobToDelete != null)
+                        {
+                          
+                            conn.tb_EmployeeAllowanceJob.Remove(EmployeeAllowanceJobToDelete);
+                            conn.SaveChanges();
+                            transaction.Commit();
+                        }
+                        else
+                        {
+                            throw new Exception("employee Allowance job không tìm thấy.");
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Error while deleting employee allowance job: " + ex.InnerException.Message);
+                    }
+                }
+            }
 
         }
     }

@@ -18,16 +18,25 @@ namespace BussinessLayer
         }
         public void AddAllowanceJob(tb_AllowanceJob tb_AllowanceJobs)
         {
-            try
+            using (var transaction = phucapDAL.Database.BeginTransaction())
             {
-                phucapDAL.tb_AllowanceJob.Add(tb_AllowanceJobs);
-                phucapDAL.SaveChanges();
+
+                try
+                {
+                    phucapDAL.tb_AllowanceJob.Add(tb_AllowanceJobs);
+                    phucapDAL.SaveChanges();
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw new Exception("Error while adding allowance job. Please check your input and try again.");
+                }
             }
-            catch (Exception)
-            {
-                throw new Exception("Error while adding allowance job. Please check your input and try again.");
-            }
+
         }
+            
+        
         public void DeleteAllowanceJob(int allowanceJobId)
         {
             using (var transaction = phucapDAL.Database.BeginTransaction())
@@ -39,6 +48,7 @@ namespace BussinessLayer
                     var allowanceJobToDelete = phucapDAL.tb_AllowanceJob.FirstOrDefault(j => j.AllowanceJobID == allowanceJobId);
                     if (allowanceJobToDelete != null)
                     {
+                        allowanceJobToDelete.DeletedDate = DateTime.Now;
                         allowanceJobToDelete.State = false;
                             phucapDAL.SaveChanges();
                             transaction.Commit();

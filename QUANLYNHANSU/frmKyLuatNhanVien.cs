@@ -1,8 +1,10 @@
 ﻿using BussinessLayer;
 using DataLayer.model;
+using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -72,36 +74,78 @@ namespace QUANLYNHANSU
         }
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            
             isFormPainted = false;
             ToggleFormState(false);
+            txtMakyluat.Enabled = !Enabled;
             ClearForm();
+        }
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                int rowIndex = gcDanhSach.FocusedView.DataRowCount;
+                if (rowIndex > 0)
+                {
+                    var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+                    if (focusedObject != null)
+                    {
+                        string employeediscipline = focusedObject.GetType().GetProperty("EmployeeDisciplineID").GetValue(focusedObject).ToString();
+
+                        DialogResult result = MessageBox.Show($"Bạn có muốn xóa nhan vien ky luat có ID là  {employeediscipline} không?", " Xóa kỹ luật nhân viên", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {
+                            _isNewRecord = false;
+                            nhanvienkyluatBUS.DeleteEmployeeDiscipline(employeediscipline);
+                            MessageBox.Show("xóa  kỷ luật nhân viên thành công ", "thông báo");
+                            LoadData();
+                        }
+
+                    }
+                    else
+                    {
+                        throw new Exception("data không đúng ");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (_isNewRecord)
             {
-                tb_EmployeeDiscipline newEmployeeDiscipline = new tb_EmployeeDiscipline
+                if (string.IsNullOrEmpty(txthoten.Text) || string.IsNullOrEmpty(txtGhiChu.Text) ||
+                    string.IsNullOrEmpty(cbb_makycong.Text) || string.IsNullOrEmpty(cbb_manhanvien.Text) || string.IsNullOrEmpty(txtSoTien.Text))
                 {
-                    EmployeeDisciplineID = txtMakyluat.Text,
-                    EmployeeID = cbb_manhanvien.Text,
-                    // = cbb.SelectedValue.ToString()
-                    PayPeriodID = int.Parse(cbb_makycong.Text),
-                    Amount = int.Parse(txtSoTien.Text),
-                    CreatedDate = DateTime.Now,
-                    Note = txtGhiChu.Text,
-                };
-                nhanvienkyluatBUS.AddEmloyeeAllowanceJob(newEmployeeDiscipline);
-                LoadData();
-                //bindinglist.Add(newEmployeeallowanceJob);
-                MessageBox.Show("thêm 1 kỹ luật nhân viên mới thành công ", "thông báo");
-                _isNewRecord = false;
-                ToggleFormState(true);
-                ClearForm();
+                    MessageBox.Show("vui lòng nhập đầy đủ thông tin");
+                }
+                else
+                {
+                    tb_EmployeeDiscipline newEmployeeDiscipline = new tb_EmployeeDiscipline
+                    {
+                        EmployeeDisciplineID = txtMakyluat.Text,
+                        EmployeeID = cbb_manhanvien.Text,
+                        // = cbb.SelectedValue.ToString()
+                        PayPeriodID = int.Parse(cbb_makycong.Text),
+                        Amount = int.Parse(txtSoTien.Text),
+                        CreatedDate = DateTime.Now,
+                        Note = txtGhiChu.Text,
+                    };
+                    nhanvienkyluatBUS.AddEmloyeeAllowanceJob(newEmployeeDiscipline);
+                    LoadData();
+                    //bindinglist.Add(newEmployeeallowanceJob);
+                    MessageBox.Show("thêm 1 kỷ luật nhân viên mới thành công ", "thông báo");
+                    _isNewRecord = false;
+                    ToggleFormState(true);
+                    ClearForm();
+                }
+                
             }
-            /*else
-            {
-                object value = gridView1.FocusedValue;
-
+            else
+            { 
                 using (var conn = new DBcontext())
                 {
                     try
@@ -109,66 +153,39 @@ namespace QUANLYNHANSU
                         int rowIndex = gcDanhSach.FocusedView.DataRowCount;
                         if (rowIndex > 0)
                         {
-                            GridView gridView = gcDanhSach.MainView as GridView;
-                            //tb_EmployeeAllowanceJob currentRowHandle = gridView.FocusedRowObject as tb_EmployeeAllowanceJob;
-                            var currentRowHandle = gridView.FocusedRowObject;
-                            // Lấy dòng đang được chọn trong GridControl
-                            var selectedRow = gridView1.GetFocusedDataRow();
-                            // Lấy giá trị EmployeeAllowanceJobID từ dòng đang được chọn
-                            if (selectedRow != null && selectedRow["EmployeeAllowanceJobID"] != null)
+                            var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+                            if (focusedObject != null)
                             {
-                                int employeeAllowanceJobid = (int)selectedRow["EmployeeAllowanceJobID"];
-                                // Tiếp tục với các bước khác
-                            }
-                            else
-                            {
-                                MessageBox.Show("Không thể tìm thấy EmployeeAllowanceJobID hoặc dòng đang được chọn không hợp lệ.");
-                            }
-
-
-                            return;
-                            if (currentRowHandle != null)
-                            {
-
-
                                 using (var transaction = conn.Database.BeginTransaction())
                                 {
                                     try
                                     {
-
-                                        tb_EmployeeAllowanceJob employeeAllowanceID = conn.tb_EmployeeAllowanceJob.FirstOrDefault(j => j.EmployeeAllowanceJobID == employeeAllowanceJobid);
-                                        if (employeeAllowanceID != null)
+                                        string employedisciplineID = focusedObject.GetType().GetProperty("EmployeeDisciplineID").GetValue(focusedObject).ToString();
+                                        tb_EmployeeDiscipline employeeDisciplineID = conn.tb_EmployeeDiscipline.FirstOrDefault(j => j.EmployeeDisciplineID == employedisciplineID);
+                                        if (employeeDisciplineID != null)
                                         {
-                                            employeeAllowanceID.tb_AllowanceJob.AllowanceJobName = cbb_TenPhuCap.Text;
-                                            employeeAllowanceID.tb_Employee.FullName = cbb_TenNhanVien.Text;
-                                            employeeAllowanceID.tb_PayPeriod.PayPeriodID = int.Parse(cbb_MaKyCong.Text);
-                                            employeeAllowanceID.Note = txtNote.Text;
-                                            employeeAllowanceID.UpdatedDate = DateTime.Now;
-                                            currentRowHandle.tb_AllowanceJob.AllowanceJobName = cbb_TenPhuCap.Text;
-                                            currentRowHandle.tb_Employee.FullName = cbb_TenNhanVien.Text;
-                                            currentRowHandle.PayPeriodID = int.Parse(cbb_MaKyCong.Text);
-                                            currentRowHandle.Note = txtNote.Text;
-                                            currentRowHandle.UpdatedDate = DateTime.Now;
-                                            //employeeAllowanceID.AllowanceAmount = int.Parse(txtSoTienPhuCap.Text);
-                                            //currentRowHandle.UpdatedDate = DateTime.Now;
-
+                                            
+                                            employeeDisciplineID.EmployeeID = cbb_manhanvien.Text;
+                                            employeeDisciplineID.PayPeriodID = int.Parse(cbb_makycong.Text);
+                                            employeeDisciplineID.Note = txtGhiChu.Text;
+                                            employeeDisciplineID.Amount = int.Parse(txtSoTien.Text);
+                                            employeeDisciplineID.UpdatedDate = DateTime.Now;
                                             conn.SaveChanges();
                                             transaction.Commit();
-                                            MessageBox.Show("sửa phụ cấp mới thành công ", "thông báo");
+                                            MessageBox.Show("sửa kĩ luật nhân viên  thành công ", "thông báo");
                                             LoadData();
                                             ToggleFormState(true);
-
                                             ClearForm();
                                         }
                                         else
                                         {
-                                            MessageBox.Show("bi null");
+                                            MessageBox.Show("ko có nhan vien nao");
                                         }
                                     }
                                     catch (DbUpdateException ex)
                                     {
                                         transaction.Rollback();
-                                        throw new Exception("Error while edit allowance job: " + ex.InnerException.Message);
+                                        throw new Exception("Error while edit employee discipline: " + ex.InnerException.Message);
                                     }
                                 }
                             }
@@ -179,10 +196,8 @@ namespace QUANLYNHANSU
                         MessageBox.Show(ex.Message);
 
                     }
-                
-
-
-            }*/
+                }
+            }
         }
 
         private void ToggleFormState(bool isEnabled)

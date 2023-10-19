@@ -27,6 +27,13 @@ namespace QUANLYNHANSU
         }
         private void LoadData()
         {
+           /* gcDanhSach.DataSource = phucapBus.GetTb_AllowanceJobs()
+                .Select(alj => new
+                {
+                    alj.AllowanceJobID,
+                    alj.AllowanceJobName,
+                    alj.AllowanceAmount
+                });*/
             bindinglist.Clear();
             foreach (tb_AllowanceJob job in phucapBus.GetTb_AllowanceJobs())
             {
@@ -60,8 +67,7 @@ namespace QUANLYNHANSU
                     {
                         DialogResult result = MessageBox.Show($"Bạn có muốn xóa phụ cấp có ID là  {currentRowHandle.AllowanceJobID} không?", " Xóa Phụ Cấp", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
-                        {
-                            currentRowHandle.DeletedDate = DateTime.Now;
+                        {   
                             _isNewRecord = false;
                             phucapBus.DeleteAllowanceJob(currentRowHandle.AllowanceJobID);
                             MessageBox.Show("xóa phụ cấp mới thành công ", "thông báo");
@@ -107,7 +113,8 @@ namespace QUANLYNHANSU
                     AllowanceAmount = int.Parse(txtSoTienPhuCap.Text)
                 };
                 phucapBus.AddAllowanceJob(newallowanceJob);
-                bindinglist.Add(newallowanceJob);
+                LoadData();
+                //bindinglist.Add(newallowanceJob);
                 MessageBox.Show("thêm phụ cấp mới thành công ", "thông báo");
                 _isNewRecord = false;
                 ToggleFormState(true);

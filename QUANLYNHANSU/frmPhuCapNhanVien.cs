@@ -77,30 +77,70 @@ namespace QUANLYNHANSU
             ToggleFormState(false);
             ClearForm();
         }
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                int rowIndex = gcDanhSach.FocusedView.DataRowCount;
+                if (rowIndex > 0)
+                {
+                    var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+                    if (focusedObject != null)
+                    {
+                        int employeeAllowanceJobID = (int)focusedObject.GetType().GetProperty("EmployeeAllowanceJobID").GetValue(focusedObject);
+
+                        DialogResult result = MessageBox.Show($"Bạn có muốn xóa phụ cấp có ID là  {employeeAllowanceJobID} không?", " Xóa Phụ Cấp", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {   
+                            _isNewRecord = false;
+                            nhanvienphucapBus.DeleteEmployeeAllowanceJob(employeeAllowanceJobID);
+                            MessageBox.Show("xóa phụ cấp mới thành công ", "thông báo");
+                            LoadData();
+                        }
+
+                    }
+                    else
+                    {
+                        throw new Exception("data không đúng ");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (_isNewRecord)
             {
-                tb_EmployeeAllowanceJob newEmployeeallowanceJob = new tb_EmployeeAllowanceJob
+                if (string.IsNullOrEmpty(txtNote.Text) || string.IsNullOrEmpty(cbb_TenNhanVien.Text) ||
+                    string.IsNullOrEmpty(cbb_MaKyCong.Text)||string.IsNullOrEmpty(cbb_TenPhuCap.Text))
                 {
-                    EmployeeID = cbb_TenNhanVien.SelectedValue.ToString(),
-                    PayPeriodID = int.Parse(cbb_MaKyCong.Text),
-                    AllowanceJobID = short.Parse(cbb_TenPhuCap.SelectedValue.ToString()),
-                    CreatedDate = DateTime.Now,
-                    Note = txtNote.Text,
-                };
-                nhanvienphucapBus.AddEmloyeeAllowanceJob(newEmployeeallowanceJob);
-                LoadData();
-                //bindinglist.Add(newEmployeeallowanceJob);
-                MessageBox.Show("thêm nhân viên phụ cấp mới thành công ", "thông báo");
-                _isNewRecord = false;
-                ToggleFormState(true);
-                ClearForm();
+                    MessageBox.Show("vui lòng nhập đầy đủ thông tin");
+                }
+                else
+                {
+                    tb_EmployeeAllowanceJob newEmployeeallowanceJob = new tb_EmployeeAllowanceJob
+                    {
+                        EmployeeID = cbb_TenNhanVien.SelectedValue.ToString(),
+                        PayPeriodID = int.Parse(cbb_MaKyCong.Text),
+                        AllowanceJobID = short.Parse(cbb_TenPhuCap.SelectedValue.ToString()),
+                        CreatedDate = DateTime.Now,
+                        Note = txtNote.Text,
+                    };
+                    nhanvienphucapBus.AddEmloyeeAllowanceJob(newEmployeeallowanceJob);
+                    LoadData();
+                    //bindinglist.Add(newEmployeeallowanceJob);
+                    MessageBox.Show("thêm nhân viên phụ cấp mới thành công ", "thông báo");
+                    _isNewRecord = false;
+                    ToggleFormState(true);
+                    ClearForm();
+                }
+                   
             }
             else
-            {
-               object value = gridView1.FocusedValue;
-                
+            {       
                 using(var conn = new DBcontext())   
                 {
                     try
@@ -108,69 +148,43 @@ namespace QUANLYNHANSU
                         int rowIndex = gcDanhSach.FocusedView.DataRowCount;
                         if (rowIndex > 0)
                         {
-                            GridView gridView = gcDanhSach.MainView as GridView;
-                            //tb_EmployeeAllowanceJob currentRowHandle = gridView.FocusedRowObject as tb_EmployeeAllowanceJob;
-                          var currentRowHandle = gridView.FocusedRowObject;
-                            // Lấy dòng đang được chọn trong GridControl
-                            var selectedRow = gridView1.GetFocusedDataRow();
-                            // Lấy giá trị EmployeeAllowanceJobID từ dòng đang được chọn
-                            if (selectedRow != null && selectedRow["EmployeeAllowanceJobID"] != null)
+                            var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+                            if (focusedObject != null)
                             {
-                                int employeeAllowanceJobid = (int)selectedRow["EmployeeAllowanceJobID"];
-                                // Tiếp tục với các bước khác
-                            }
-                            else
-                            {
-                                MessageBox.Show("Không thể tìm thấy EmployeeAllowanceJobID hoặc dòng đang được chọn không hợp lệ.");
-                            }
 
 
-                            return;
-                           /* if (currentRowHandle != null)
-                            {
-                              
-                               
                                 using (var transaction = conn.Database.BeginTransaction())
                                 {
                                     try
                                     {
-
-                                        tb_EmployeeAllowanceJob employeeAllowanceID = conn.tb_EmployeeAllowanceJob.FirstOrDefault(j => j.EmployeeAllowanceJobID == employeeAllowanceJobid) ;
+                                        int employeeAllowanceJobID = (int)focusedObject.GetType().GetProperty("EmployeeAllowanceJobID").GetValue(focusedObject);
+                                        tb_EmployeeAllowanceJob employeeAllowanceID = conn.tb_EmployeeAllowanceJob.FirstOrDefault(j => j.EmployeeAllowanceJobID == employeeAllowanceJobID);
                                         if (employeeAllowanceID != null)
                                         {
                                             employeeAllowanceID.tb_AllowanceJob.AllowanceJobName = cbb_TenPhuCap.Text;
                                             employeeAllowanceID.tb_Employee.FullName = cbb_TenNhanVien.Text;
-                                            employeeAllowanceID.tb_PayPeriod.PayPeriodID = int.Parse(cbb_MaKyCong.Text);
+                                            employeeAllowanceID.PayPeriodID = int.Parse(cbb_MaKyCong.Text);
                                             employeeAllowanceID.Note = txtNote.Text;
                                             employeeAllowanceID.UpdatedDate = DateTime.Now;
-                                           *//* currentRowHandle.tb_AllowanceJob.AllowanceJobName = cbb_TenPhuCap.Text;
-                                            currentRowHandle.tb_Employee.FullName = cbb_TenNhanVien.Text;
-                                            currentRowHandle.PayPeriodID = int.Parse(cbb_MaKyCong.Text);
-                                            currentRowHandle.Note = txtNote.Text;
-                                            currentRowHandle.UpdatedDate = DateTime.Now;*//*
-                                            //employeeAllowanceID.AllowanceAmount = int.Parse(txtSoTienPhuCap.Text);
-                                            //currentRowHandle.UpdatedDate = DateTime.Now;
-
                                             conn.SaveChanges();
                                             transaction.Commit();
-                                            MessageBox.Show("sửa phụ cấp mới thành công ", "thông báo");
+                                            MessageBox.Show("sửa nhân viên phụ cấp  thành công ", "thông báo");
                                             LoadData();
                                             ToggleFormState(true);
-
                                             ClearForm();
                                         }
                                         else
                                         {
-                                            MessageBox.Show("bi null");
+                                            MessageBox.Show("ko có nhan vien nao");
                                         }
                                     }
                                     catch (DbUpdateException ex)
                                     {
                                         transaction.Rollback();
-                                        throw new Exception("Error while edit allowance job: " + ex.InnerException.Message);
+                                        throw new Exception("Error while edit employee allowance job: " + ex.InnerException.Message);
                                     }
                                 }
-                            }*/
+                            }
                         }
                     }
                     catch (Exception ex)

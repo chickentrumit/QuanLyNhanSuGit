@@ -1,25 +1,27 @@
 ﻿using DataLayer.model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
-using System.Threading.Tasks;   
+using System.Threading.Tasks;
+
 namespace BussinessLayer
 {
-    public class NhanVienKyLuat
+    public class LoaiCa
     {
-        public List<tb_EmployeeDiscipline> GetTb_EmployeeDiscipline()
+        public List<tb_ShiftType> GetTb_shiftType()
         {
-            List<tb_EmployeeDiscipline> list;
-            /* return conn.tb_EmployeeAllowanceJob.ToList();*/
+            List<tb_ShiftType> listshifttype;
             using (var conn = new DBcontext())
             {
-                list = conn.tb_EmployeeDiscipline.ToList();
+               listshifttype = conn.tb_ShiftType.Where(item => item.State==true).ToList();
             }
-            return list;
+            return listshifttype;
         }
-        public void AddEmloyeeAllowanceJob(tb_EmployeeDiscipline tb_EmployeeDisciplines)
+        public void AddshiftType(tb_ShiftType tb_ShiftTypes)
         {
             using (var conn = new DBcontext())
             {
@@ -28,51 +30,53 @@ namespace BussinessLayer
 
                     try
                     {
-                        conn.tb_EmployeeDiscipline.Add(tb_EmployeeDisciplines);
+                        conn.tb_ShiftType.Add(tb_ShiftTypes);
                         conn.SaveChanges();
                         transaction.Commit();
                     }
                     catch (Exception)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while adding employee discipline job. Please check your input and try again.");
+                        throw new Exception("Error while adding shift type. Please check your input and try again.");
                     }
                 }
             }
-
+            
 
         }
-        public void DeleteEmployeeDiscipline(string EmployeeDisciplineId)
-        {
 
+
+        public void DeleteshiftType(int shiftTypesID)
+        {
             using (var conn = new DBcontext())
             {
                 using (var transaction = conn.Database.BeginTransaction())
                 {
+
                     try
                     {
 
-                        var EmployeedisciplineToDelete = conn.tb_EmployeeDiscipline.FirstOrDefault(j => j.EmployeeDisciplineID == EmployeeDisciplineId);
-                        if (EmployeedisciplineToDelete != null)
+                        var shifttypeToDelete = conn.tb_ShiftType.FirstOrDefault(j => j.ShiftTypeID == shiftTypesID);
+                        if (shifttypeToDelete != null)
                         {
-
-                            conn.tb_EmployeeDiscipline.Remove(EmployeedisciplineToDelete);
+                            shifttypeToDelete.DeletedDate=DateTime.Now;
+                            shifttypeToDelete.State = false;
                             conn.SaveChanges();
                             transaction.Commit();
                         }
                         else
                         {
-                            throw new Exception("employee discipline không tìm thấy.");
+                            throw new Exception("shift type không tìm thấy.");
                         }
                     }
                     catch (DbUpdateException ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while deleting employee discipline job: " + ex.InnerException.Message);
+                        throw new Exception("Error while deleting shift type: " + ex.InnerException.Message);
                     }
                 }
             }
-
+            
         }
     }
 }
