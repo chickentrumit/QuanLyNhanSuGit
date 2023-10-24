@@ -30,7 +30,7 @@ namespace BussinessLayer
                 catch (Exception)
                 {
                     transaction.Rollback();
-                    throw new Exception("Error while adding allowance job. Please check your input and try again.");
+                    throw new Exception("lỗi khi thêm . vui lòng kiểm tra đầu vào của bạn và thử lại!!!.");
                 }
             }
 
@@ -48,6 +48,7 @@ namespace BussinessLayer
                     var allowanceJobToDelete = phucapDAL.tb_AllowanceJob.FirstOrDefault(j => j.AllowanceJobID == allowanceJobId);
                     if (allowanceJobToDelete != null)
                     {
+                        allowanceJobToDelete.DeletedBy = "Tràn Nhật Phi";
                         allowanceJobToDelete.DeletedDate = DateTime.Now;
                         allowanceJobToDelete.State = false;
                             phucapDAL.SaveChanges();
@@ -55,43 +56,16 @@ namespace BussinessLayer
                     }
                     else
                     {
-                        throw new Exception("Allowance job không tìm thấy.");
+                        throw new Exception("phụ cấp không tìm thấy.");
                     }
                 }
                 catch (DbUpdateException ex)
                 {
                     transaction.Rollback();
-                    throw new Exception("Error while deleting allowance job: " + ex.InnerException.Message);
+                    throw new Exception("lỗi khi xóa phụ cấp: " + ex.InnerException.Message);
                 }
             }
 
-        }
-        public void UpdateAllowanceJob(tb_AllowanceJob updatedAllowanceJob)
-        {
-            using (var transaction = phucapDAL.Database.BeginTransaction())
-            {
-                try
-                {
-                    var allowanceJobToUpdate = phucapDAL.tb_AllowanceJob.Find(updatedAllowanceJob.AllowanceJobID);
-                    if (allowanceJobToUpdate != null)
-                    {
-                        allowanceJobToUpdate.AllowanceJobName = updatedAllowanceJob.AllowanceJobName;
-                        allowanceJobToUpdate.AllowanceAmount = updatedAllowanceJob.AllowanceAmount;
-
-                        phucapDAL.SaveChanges();
-                        transaction.Commit();
-                    }
-                    else
-                    {
-                        throw new Exception("Allowance job not found.");
-                    }
-                }
-                catch (DbUpdateException ex)
-                {
-                    transaction.Rollback();
-                    throw new Exception("Error while updating allowance job: " + ex.InnerException.Message);
-                }
-            }
         }
     }
 }

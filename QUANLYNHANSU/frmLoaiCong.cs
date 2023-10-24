@@ -71,7 +71,7 @@ namespace QUANLYNHANSU
                     tb_JobType currentRowHandle = gridView.FocusedRowObject as tb_JobType;
                     if (currentRowHandle != null)
                     {
-                        DialogResult result = MessageBox.Show($"Bạn có muốn xóa loai công có ID là  {currentRowHandle.JobTypeID} không?", " Xóa Loai scông", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult result = MessageBox.Show($"Bạn có muốn xóa loai công có ID là  {currentRowHandle.JobTypeID} không?", " Xóa Loai công", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
                         {
                             //currentRowHandle.DeletedDate = DateTime.Now;
@@ -84,7 +84,7 @@ namespace QUANLYNHANSU
                     }
                     else
                     {
-                        throw new Exception("data không đúng ");
+                        throw new Exception("Dữ liệu không đúng ");
                     }
                 }
             }
@@ -114,22 +114,23 @@ namespace QUANLYNHANSU
             {
                 if (string.IsNullOrEmpty(txtHeSo.Text) || string.IsNullOrEmpty(txtTenLoaiCong.Text))
                 {
-                    MessageBox.Show("vui lòng nhập đầy đủ tên loại ca và hệ số");
+                    MessageBox.Show("vui lòng nhập đầy đủ tên loại công và hệ số");
                 }
                 else
                 {
-                    tb_JobType newshifttype = new tb_JobType
+                    tb_JobType newjobtype = new tb_JobType
                     {
+                        CreatedBy = "Trần Nhật Phi",
                         CreatedDate = DateTime.Now,
                         State = true,
                         JobTypeName = txtTenLoaiCong.Text,
                         Coefficinet = double.Parse(txtHeSo.Text)
                     };
-                    loaicongBUS.AddjobType(newshifttype);
-                    bindinglist.Add(newshifttype);
+                    loaicongBUS.AddjobType(newjobtype);
+                    bindinglist.Add(newjobtype);
                     LoadData();
 
-                    MessageBox.Show("thêm loại ca mới thành công ", "thông báo");
+                    MessageBox.Show("thêm loại công mới thành công ", "thông báo");
                     _isNewRecord = false;
                     ToggleFormState(true);
                     ClearForm();
@@ -142,51 +143,61 @@ namespace QUANLYNHANSU
                 {
                     try
                     {
-                        int rowIndex = gcDanhSach.FocusedView.DataRowCount;
-                        if (rowIndex > 0)
+                        if (string.IsNullOrEmpty(txtHeSo.Text) || string.IsNullOrEmpty(txtTenLoaiCong.Text))
                         {
-                            GridView gridView = gcDanhSach.MainView as GridView;
-                            tb_JobType currentRowHandle = gridView.FocusedRowObject as tb_JobType;
-                            if (currentRowHandle != null)
+                            MessageBox.Show("vui lòng nhập đầy đủ tên loại công và hệ số");
+                        }
+                        else
+                        {
+
+
+                            int rowIndex = gcDanhSach.FocusedView.DataRowCount;
+                            if (rowIndex > 0)
                             {
-
-                                using (var transaction = conn.Database.BeginTransaction())
+                                GridView gridView = gcDanhSach.MainView as GridView;
+                                tb_JobType currentRowHandle = gridView.FocusedRowObject as tb_JobType;
+                                if (currentRowHandle != null)
                                 {
-                                    try
+
+                                    using (var transaction = conn.Database.BeginTransaction())
                                     {
-
-                                        var shifttypeID = conn.tb_JobType.FirstOrDefault(j => j.JobTypeID == currentRowHandle.JobTypeID);
-                                        if (shifttypeID != null)
+                                        try
                                         {
-                                            if (string.IsNullOrEmpty(txtHeSo.Text) || string.IsNullOrEmpty(txtTenLoaiCong.Text))
+
+                                            var jobtypeID = conn.tb_JobType.FirstOrDefault(j => j.JobTypeID == currentRowHandle.JobTypeID);
+                                            if (jobtypeID != null)
                                             {
-                                                MessageBox.Show("vui lòng nhập đầy đủ tên loại ca và hệ số");
-                                            }
-                                            else
-                                            {
-                                                currentRowHandle.JobTypeName = txtTenLoaiCong.Text;
-                                                shifttypeID.JobTypeName = txtTenLoaiCong.Text;
-                                                currentRowHandle.Coefficinet = double.Parse(txtHeSo.Text);
-                                                shifttypeID.Coefficinet = double.Parse(txtHeSo.Text);
-                                                //currentRowHandle.UpdatedDate = DateTime.Now;
-                                                shifttypeID.UpdatedDate = DateTime.Now;
-                                                conn.SaveChanges();
-                                                transaction.Commit();
-                                                MessageBox.Show("sửa loại ca mới thành công ", "thông báo");
-                                                LoadData();
-                                                ToggleFormState(true);
-                                                ClearForm();
+                                                if (string.IsNullOrEmpty(txtHeSo.Text) || string.IsNullOrEmpty(txtTenLoaiCong.Text))
+                                                {
+                                                    MessageBox.Show("vui lòng nhập đầy đủ tên loại công và hệ số");
+                                                }
+                                                else
+                                                {
+                                                    currentRowHandle.JobTypeName = txtTenLoaiCong.Text;
+                                                    jobtypeID.JobTypeName = txtTenLoaiCong.Text;
+                                                    currentRowHandle.Coefficinet = double.Parse(txtHeSo.Text);
+                                                    jobtypeID.Coefficinet = double.Parse(txtHeSo.Text);
+                                                    //currentRowHandle.UpdatedDate = DateTime.Now;
+                                                    jobtypeID.UpdatedBy = "Trần Nhật Phi";
+                                                    jobtypeID.UpdatedDate = DateTime.Now;
+                                                    conn.SaveChanges();
+                                                    transaction.Commit();
+                                                    MessageBox.Show("sửa loại công mới thành công ", "thông báo");
+                                                    LoadData();
+                                                    ToggleFormState(true);
+                                                    ClearForm();
+
+                                                }
+
 
                                             }
-
 
                                         }
-
-                                    }
-                                    catch (DbUpdateException ex)
-                                    {
-                                        transaction.Rollback();
-                                        throw new Exception("Error while edit shift type: " + ex.InnerException.Message);
+                                        catch (DbUpdateException ex)
+                                        {
+                                            transaction.Rollback();
+                                            throw new Exception("lỗi trong khi đang sửa loại công: " + ex.InnerException.Message);
+                                        }
                                     }
                                 }
                             }
@@ -224,6 +235,13 @@ namespace QUANLYNHANSU
             {
                 e.Cancel = true;
             }
+        }
+
+        private void gcDanhSach_Click(object sender, EventArgs e)
+        {
+            var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+            txtHeSo.Text = focusedObject.GetType().GetProperty("Coefficinet").GetValue(focusedObject).ToString();
+            txtTenLoaiCong.Text = focusedObject.GetType().GetProperty("JobTypeName").GetValue(focusedObject).ToString();
         }
     }
 }

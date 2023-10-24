@@ -77,7 +77,7 @@ namespace QUANLYNHANSU
                     }
                     else
                     {
-                        throw new Exception("data không đúng ");
+                        throw new Exception("Dữ liệu không đúng ");
                     }
                 }
             }
@@ -105,62 +105,84 @@ namespace QUANLYNHANSU
            
             if (_isNewRecord)
             {
-                tb_AllowanceJob newallowanceJob = new tb_AllowanceJob
+                if (string.IsNullOrEmpty(txtTenPhuCap.Text) || string.IsNullOrEmpty(txtSoTienPhuCap.Text))
+
                 {
-                    CreatedDate = DateTime.Now,
-                    State = true,
-                    AllowanceJobName = txtTenPhuCap.Text,
-                    AllowanceAmount = int.Parse(txtSoTienPhuCap.Text)
-                };
-                phucapBus.AddAllowanceJob(newallowanceJob);
-                LoadData();
-                //bindinglist.Add(newallowanceJob);
-                MessageBox.Show("thêm phụ cấp mới thành công ", "thông báo");
-                _isNewRecord = false;
-                ToggleFormState(true);
-                ClearForm();
+                    MessageBox.Show("vui lòng nhập đầy đủ thông tin");
+                }
+                else
+                {
+
+
+                    tb_AllowanceJob newallowanceJob = new tb_AllowanceJob
+                    {
+                        CreatedBy = "Trần Nhật Phi",
+                        CreatedDate = DateTime.Now,
+                        State = true,
+                        AllowanceJobName = txtTenPhuCap.Text,
+                        AllowanceAmount = int.Parse(txtSoTienPhuCap.Text)
+                    };
+                    phucapBus.AddAllowanceJob(newallowanceJob);
+                    LoadData();
+                    //bindinglist.Add(newallowanceJob);
+                    MessageBox.Show("thêm phụ cấp mới thành công ", "thông báo");
+                    _isNewRecord = false;
+                    ToggleFormState(true);
+                    ClearForm();
+                }
             }
             else
             {
                 try
                 {
-                    int rowIndex = gcDanhSach.FocusedView.DataRowCount;
-                    if (rowIndex > 0)
+                    if (string.IsNullOrEmpty(txtTenPhuCap.Text) || string.IsNullOrEmpty(txtSoTienPhuCap.Text))
+
                     {
-                        GridView gridView = gcDanhSach.MainView as GridView;
-                        tb_AllowanceJob currentRowHandle = gridView.FocusedRowObject as tb_AllowanceJob;
-                        if (currentRowHandle != null)
+                        MessageBox.Show("vui lòng nhập đầy đủ thông tin");
+                    }
+                    else
+                    {
+
+
+                        int rowIndex = gcDanhSach.FocusedView.DataRowCount;
+                        if (rowIndex > 0)
                         {
-                            
-                            using (var transaction = conn.Database.BeginTransaction())
+                            GridView gridView = gcDanhSach.MainView as GridView;
+                            tb_AllowanceJob currentRowHandle = gridView.FocusedRowObject as tb_AllowanceJob;
+                            if (currentRowHandle != null)
                             {
-                                try
-                                {
 
-                                    var allowanceID = conn.tb_AllowanceJob.FirstOrDefault(j => j.AllowanceJobID == currentRowHandle.AllowanceJobID);
-                                    if (allowanceID != null)
+                                using (var transaction = conn.Database.BeginTransaction())
+                                {
+                                    try
                                     {
-                                        
-                                        currentRowHandle.AllowanceJobName = txtTenPhuCap.Text;
-                                        allowanceID.AllowanceJobName = txtTenPhuCap.Text;
-                                        currentRowHandle.AllowanceAmount = int.Parse(txtSoTienPhuCap.Text);
-                                        allowanceID.AllowanceAmount = int.Parse(txtSoTienPhuCap.Text);
-                                        //currentRowHandle.UpdatedDate = DateTime.Now;
-                                        allowanceID.UpdatedDate = DateTime.Now;
-                                        conn.SaveChanges();
-                                        transaction.Commit();
-                                        MessageBox.Show("sửa phụ cấp mới thành công ", "thông báo");
-                                        LoadData();
-                                        ToggleFormState(true);
-                                       
-                                        ClearForm();
-                                    }
 
-                                }
-                                catch (DbUpdateException ex)
-                                {
-                                    transaction.Rollback();
-                                    throw new Exception("Error while edit allowance job: " + ex.InnerException.Message);
+                                        var allowanceID = conn.tb_AllowanceJob.FirstOrDefault(j => j.AllowanceJobID == currentRowHandle.AllowanceJobID);
+                                        if (allowanceID != null)
+                                        {
+
+                                            currentRowHandle.AllowanceJobName = txtTenPhuCap.Text;
+                                            allowanceID.AllowanceJobName = txtTenPhuCap.Text;
+                                            currentRowHandle.AllowanceAmount = int.Parse(txtSoTienPhuCap.Text);
+                                            allowanceID.AllowanceAmount = int.Parse(txtSoTienPhuCap.Text);
+                                            //currentRowHandle.UpdatedDate = DateTime.Now;
+                                            allowanceID.UpdatedBy = "Trần Nhật Phi";
+                                            allowanceID.UpdatedDate = DateTime.Now;
+                                            conn.SaveChanges();
+                                            transaction.Commit();
+                                            MessageBox.Show("sửa phụ cấp mới thành công ", "thông báo");
+                                            LoadData();
+                                            ToggleFormState(true);
+
+                                            ClearForm();
+                                        }
+
+                                    }
+                                    catch (DbUpdateException ex)
+                                    {
+                                        transaction.Rollback();
+                                        throw new Exception("Lỗi Trong khi đang sửa phụ cấp: " + ex.InnerException.Message);
+                                    }
                                 }
                             }
                         }
@@ -198,6 +220,14 @@ namespace QUANLYNHANSU
             {
                 e.Cancel = true;
             }
+        }
+
+        private void gcDanhSach_Click(object sender, EventArgs e)
+        {
+            var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+            txtTenPhuCap.Text = focusedObject.GetType().GetProperty("AllowanceJobName").GetValue(focusedObject).ToString();
+            txtSoTienPhuCap.Text = focusedObject.GetType().GetProperty("AllowanceAmount").GetValue(focusedObject).ToString();
+            
         }
     }
 }

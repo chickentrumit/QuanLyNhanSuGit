@@ -4,3 +4,15 @@ D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.csproj.A
 D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
 D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.dll
 D:\visual studio2022 project\QUANLYNHANSU\DataLayer\obj\Debug\DataLayer.pdb
+D:\git\Winform_QuanLyNhanSu\DataLayer\bin\Debug\DataLayer.dll
+D:\git\Winform_QuanLyNhanSu\DataLayer\bin\Debug\DataLayer.pdb
+D:\git\Winform_QuanLyNhanSu\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+D:\git\Winform_QuanLyNhanSu\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\git\Winform_QuanLyNhanSu\DataLayer\obj\Debug\DataLayer.dll
+D:\git\Winform_QuanLyNhanSu\DataLayer\obj\Debug\DataLayer.pdb
+D:\git\Winform_QuanLyNhanSu\DataLayer\bin\Debug\DataLayer.dll.config
+D:\git\Winform_QuanLyNhanSu\DataLayer\bin\Debug\EntityFramework.dll
+D:\git\Winform_QuanLyNhanSu\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\git\Winform_QuanLyNhanSu\DataLayer\bin\Debug\EntityFramework.xml
+D:\git\Winform_QuanLyNhanSu\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\git\Winform_QuanLyNhanSu\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete

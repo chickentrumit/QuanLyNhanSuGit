@@ -16,6 +16,7 @@ namespace QUANLYNHANSU
         public frmHopDongLaoDong()
         {
             InitializeComponent();
+            
         }
     }
 }

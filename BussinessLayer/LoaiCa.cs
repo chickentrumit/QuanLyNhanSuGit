@@ -37,7 +37,7 @@ namespace BussinessLayer
                     catch (Exception)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while adding shift type. Please check your input and try again.");
+                        throw new Exception("lỗi khi thêm . vui lòng kiểm tra đầu vào của bạn và thử lại!!!.");
                     }
                 }
             }
@@ -59,6 +59,7 @@ namespace BussinessLayer
                         var shifttypeToDelete = conn.tb_ShiftType.FirstOrDefault(j => j.ShiftTypeID == shiftTypesID);
                         if (shifttypeToDelete != null)
                         {
+                            shifttypeToDelete.DeletedBy = "Trần Nhật Phi";
                             shifttypeToDelete.DeletedDate=DateTime.Now;
                             shifttypeToDelete.State = false;
                             conn.SaveChanges();
@@ -66,13 +67,13 @@ namespace BussinessLayer
                         }
                         else
                         {
-                            throw new Exception("shift type không tìm thấy.");
+                            throw new Exception("loại ca không tìm thấy.");
                         }
                     }
                     catch (DbUpdateException ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while deleting shift type: " + ex.InnerException.Message);
+                        throw new Exception("lỗi khi xóa loại ca: " + ex.InnerException.Message);
                     }
                 }
             }

@@ -97,7 +97,7 @@ namespace QUANLYNHANSU
                     {
                         string employeerewardID = focusedObject.GetType().GetProperty("EmployeeRewardID").GetValue(focusedObject).ToString();
 
-                        DialogResult result = MessageBox.Show($"Bạn có muốn xóa nhan vien ky luat có ID là  {employeerewardID} không?", " Xóa kỹ luật nhân viên", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult result = MessageBox.Show($"Bạn có muốn xóa khenthuong nhan vien  có ID là  {employeerewardID} không?", " Xóa khen thuong nhân viên", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
                         {
                             _isNewRecord = false;
@@ -109,7 +109,7 @@ namespace QUANLYNHANSU
                     }
                     else
                     {
-                        throw new Exception("data không đúng ");
+                        throw new Exception("dữ liệu không đúng ");
                     }
                 }
             }
@@ -123,10 +123,15 @@ namespace QUANLYNHANSU
             if (_isNewRecord)
             {
                 if (string.IsNullOrEmpty(txtQuyetDinhKhenThuong.Text) || string.IsNullOrEmpty(txtGhiChu.Text) ||
-                    string.IsNullOrEmpty(cbb_makycong.Text)||string.IsNullOrEmpty(cbb_manhanvien.Text)||string.IsNullOrEmpty(txtSoTien.Text))
+                    string.IsNullOrEmpty(cbb_makycong.Text) || string.IsNullOrEmpty(cbb_manhanvien.Text) || string.IsNullOrEmpty(txtSoTien.Text))
                 {
                     MessageBox.Show("vui lòng nhập đầy đủ thông tin");
                 }
+                else if (nhanvienkhenthuongBUS.employeeRewardIDExists(txtQuyetDinhKhenThuong.Text))
+                {
+                    MessageBox.Show("vui lòng chọn ID khác ID này đã có người sử dụng");
+                }
+
                 else
                 {
                     tb_EmployeeReward newEmployeeReward = new tb_EmployeeReward
@@ -135,13 +140,14 @@ namespace QUANLYNHANSU
                         EmployeeID = cbb_manhanvien.Text,
                         PayPeriodID = int.Parse(cbb_makycong.Text),
                         Amount = int.Parse(txtSoTien.Text),
+                        CreatedBy = "Trần Nhật Phi",
                         CreatedDate = DateTime.Now,
                         Note = txtGhiChu.Text,
                     };
                     nhanvienkhenthuongBUS.AddEmployeeReward(newEmployeeReward);
                     LoadData();
                     //bindinglist.Add(newEmployeeallowanceJob);
-                    MessageBox.Show("thêm 1 kỹ luật nhân viên mới thành công ", "thông báo");
+                    MessageBox.Show("thêm 1 Khen thưởng nhân viên mới thành công ", "thông báo");
                     _isNewRecord = false;
                     ToggleFormState(true);
                     ClearForm();
@@ -154,42 +160,61 @@ namespace QUANLYNHANSU
                 {
                     try
                     {
-                        int rowIndex = gcDanhSach.FocusedView.DataRowCount;
-                        if (rowIndex > 0)
+                        if (string.IsNullOrEmpty(txtGhiChu.Text) || string.IsNullOrEmpty(cbb_makycong.Text) ||
+                    string.IsNullOrEmpty(cbb_manhanvien.Text) || string.IsNullOrEmpty(txtSoTien.Text))
                         {
-                            var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
-                            if (focusedObject != null)
-                            {
-                                using (var transaction = conn.Database.BeginTransaction())
-                                {
-                                    try
-                                    {
-                                        string employeeRewardID = focusedObject.GetType().GetProperty("EmployeeRewardID").GetValue(focusedObject).ToString();
-                                        tb_EmployeeReward employeeREwardID = conn.tb_EmployeeReward.FirstOrDefault(j => j.EmployeeRewardID == employeeRewardID);
-                                        if (employeeREwardID != null)
-                                        {
+                            MessageBox.Show("vui lòng nhập đầy đủ thông tin");
+                        }
+                        else if (nhanvienkhenthuongBUS.employeeRewardIDExists(txtQuyetDinhKhenThuong.Text))
+                        {
+                            MessageBox.Show("vui lòng chọn ID khác ID này đã có người sử dụng");
+                        }
+                        else
+                        {
 
-                                            employeeREwardID.EmployeeID = cbb_manhanvien.Text;
-                                            employeeREwardID.PayPeriodID = int.Parse(cbb_makycong.Text);
-                                            employeeREwardID.Note = txtGhiChu.Text;
-                                            employeeREwardID.Amount = int.Parse(txtSoTien.Text);
-                                            employeeREwardID.UpdatedDate = DateTime.Now;
-                                            conn.SaveChanges();
-                                            transaction.Commit();
-                                            MessageBox.Show("sửa khen thưởng nhân viên  thành công ", "thông báo");
-                                            LoadData();
-                                            ToggleFormState(true);
-                                            ClearForm();
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("ko có nhan vien nao");
-                                        }
-                                    }
-                                    catch (DbUpdateException ex)
+
+                            int rowIndex = gcDanhSach.FocusedView.DataRowCount;
+                            if (rowIndex > 0)
+                            {
+                                var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+                                if (focusedObject != null)
+                                {
+                                    using (var transaction = conn.Database.BeginTransaction())
                                     {
-                                        transaction.Rollback();
-                                        throw new Exception("Error while editting employee reward: " + ex.InnerException.Message);
+                                        try
+                                        {
+                                            string employeeRewardID = focusedObject.GetType().GetProperty("EmployeeRewardID").GetValue(focusedObject).ToString();
+                                            tb_EmployeeReward employeeREwardID = conn.tb_EmployeeReward.FirstOrDefault(j => j.EmployeeRewardID == employeeRewardID);
+                                            DialogResult result = MessageBox.Show($"Bạn có muốn xóa khenthuong nhan vien  có ID là  {employeeRewardID} không?", " Xóa khen thuong nhân viên", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                            if (result == DialogResult.Yes)
+                                            {
+                                                if (employeeREwardID != null)
+                                                {
+
+                                                    employeeREwardID.EmployeeID = cbb_manhanvien.Text;
+                                                    employeeREwardID.PayPeriodID = int.Parse(cbb_makycong.Text);
+                                                    employeeREwardID.Note = txtGhiChu.Text;
+                                                    employeeREwardID.Amount = int.Parse(txtSoTien.Text);
+                                                    employeeREwardID.UpdatedBy = "Trần Nhật Phi";
+                                                    employeeREwardID.UpdatedDate = DateTime.Now;
+                                                    conn.SaveChanges();
+                                                    transaction.Commit();
+                                                    MessageBox.Show("sửa khen thưởng nhân viên  thành công ", "thông báo");
+                                                    LoadData();
+                                                    ToggleFormState(true);
+                                                    ClearForm();
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("không có Nhân viên nào");
+                                                }
+                                            }
+                                        }
+                                        catch (DbUpdateException ex)
+                                        {
+                                            transaction.Rollback();
+                                            throw new Exception("Lỗi Khi đang sửa Khen Thưởng Nhân Viên: " + ex.InnerException.Message);
+                                        }
                                     }
                                 }
                             }
@@ -267,6 +292,16 @@ namespace QUANLYNHANSU
                     e.Cancel = true;
                 }
         }
-            
+
+        private void gcDanhSach_Click(object sender, EventArgs e)
+        {
+            var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+            txtQuyetDinhKhenThuong.Text = focusedObject.GetType().GetProperty("EmployeeRewardID").GetValue(focusedObject).ToString();
+            cbb_makycong.Text = focusedObject.GetType().GetProperty("PayPeriodID").GetValue(focusedObject).ToString();
+            cbb_manhanvien.Text = focusedObject.GetType().GetProperty("EmployeeID").GetValue(focusedObject).ToString();
+            txtHoTen.Text = focusedObject.GetType().GetProperty("FullName").GetValue(focusedObject).ToString();
+            txtSoTien.Text = focusedObject.GetType().GetProperty("Amount").GetValue(focusedObject).ToString();
+            txtGhiChu.Text = focusedObject.GetType().GetProperty("Note").GetValue(focusedObject).ToString();
+        }
     }
 }

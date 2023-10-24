@@ -17,5 +17,10 @@ namespace QUANLYNHANSU
         {
             InitializeComponent();
         }
+
+        private void frmPhongBan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

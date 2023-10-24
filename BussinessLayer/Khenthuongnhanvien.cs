@@ -10,16 +10,6 @@ namespace BussinessLayer
 {
     public class Khenthuongnhanvien
     {
-        public List<tb_EmployeeReward> GetTb_EmployeeReward()
-        {
-            List<tb_EmployeeReward> list;
-            /* return conn.tb_EmployeeAllowanceJob.ToList();*/
-            using (var conn = new DBcontext())
-            {
-                list = conn.tb_EmployeeReward.ToList();
-            }
-            return list;
-        }
         public void AddEmployeeReward(tb_EmployeeReward tb_Employeerewards)
         {
             using (var conn = new DBcontext())
@@ -36,7 +26,7 @@ namespace BussinessLayer
                     catch (Exception)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while adding employee reward job. Please check your input and try again.");
+                        throw new Exception("lỗi khi thêm . vui lòng kiểm tra đầu vào của bạn và thử lại!!!.");
                     }
                 }
             }
@@ -62,17 +52,24 @@ namespace BussinessLayer
                         }
                         else
                         {
-                            throw new Exception("employee reward không tìm thấy.");
+                            throw new Exception("khen thưởng Nhân Viên không tìm thấy.");
                         }
                     }
                     catch (DbUpdateException ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while deleting employee reward: " + ex.InnerException.Message);
+                        throw new Exception("lỗi khi xóa Khen thưởng nhân viên: " + ex.InnerException.Message);
                     }
                 }
             }
 
+        }
+        public bool employeeRewardIDExists(string employeeRewardID)
+        {
+            using (var conn = new DBcontext())
+            {
+                return conn.tb_EmployeeReward.Any(r => r.EmployeeRewardID == employeeRewardID);
+            }
         }
     }
 }

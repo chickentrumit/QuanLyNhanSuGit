@@ -37,7 +37,7 @@ namespace BussinessLayer
                     catch (Exception)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while adding employee allowance job. Please check your input and try again.");
+                        throw new Exception("lỗi khi thêm . vui lòng kiểm tra đầu vào của bạn và thử lại!!!.");
                     }
                 }
             }
@@ -63,13 +63,13 @@ namespace BussinessLayer
                         }
                         else
                         {
-                            throw new Exception("employee Allowance job không tìm thấy.");
+                            throw new Exception("nhân viên phụ cấp không tìm thấy.");
                         }
                     }
                     catch (DbUpdateException ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while deleting employee allowance job: " + ex.InnerException.Message);
+                        throw new Exception("lỗi khi xóa nhân viên phụ cấp: " + ex.InnerException.Message);
                     }
                 }
             }

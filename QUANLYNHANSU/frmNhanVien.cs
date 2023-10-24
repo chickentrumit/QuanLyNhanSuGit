@@ -17,5 +17,10 @@ namespace QUANLYNHANSU
         {
             InitializeComponent();
         }
+
+        private void btnLapHopDongLaoDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

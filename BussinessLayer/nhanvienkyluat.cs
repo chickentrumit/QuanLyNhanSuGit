@@ -9,17 +9,7 @@ namespace BussinessLayer
 {
     public class NhanVienKyLuat
     {
-        public List<tb_EmployeeDiscipline> GetTb_EmployeeDiscipline()
-        {
-            List<tb_EmployeeDiscipline> list;
-            /* return conn.tb_EmployeeAllowanceJob.ToList();*/
-            using (var conn = new DBcontext())
-            {
-                list = conn.tb_EmployeeDiscipline.ToList();
-            }
-            return list;
-        }
-        public void AddEmloyeeAllowanceJob(tb_EmployeeDiscipline tb_EmployeeDisciplines)
+       public void AddEmloyeeDiscipline(tb_EmployeeDiscipline tb_EmployeeDisciplines)
         {
             using (var conn = new DBcontext())
             {
@@ -35,7 +25,7 @@ namespace BussinessLayer
                     catch (Exception)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while adding employee discipline job. Please check your input and try again.");
+                        throw new Exception("lỗi khi thêm . vui lòng kiểm tra đầu vào của bạn và thử lại!!!.");
                     }
                 }
             }
@@ -62,17 +52,24 @@ namespace BussinessLayer
                         }
                         else
                         {
-                            throw new Exception("employee discipline không tìm thấy.");
+                            throw new Exception("nhân viên Kỹ Luật không tìm thấy.");
                         }
                     }
                     catch (DbUpdateException ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while deleting employee discipline job: " + ex.InnerException.Message);
+                        throw new Exception("lỗi khi xóa nhân viên kỹ luật: " + ex.InnerException.Message);
                     }
                 }
             }
 
+        }
+        public bool DisciplineIDExists(string disciplineID)
+        {
+            using (var conn = new DBcontext())
+            {
+                return conn.tb_EmployeeDiscipline.Any(r => r.EmployeeDisciplineID == disciplineID);
+            }
         }
     }
 }

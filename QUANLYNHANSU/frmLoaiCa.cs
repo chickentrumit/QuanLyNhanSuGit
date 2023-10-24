@@ -84,7 +84,7 @@ namespace QUANLYNHANSU
                         }
                         else
                         {
-                            throw new Exception("data không đúng ");
+                            throw new Exception("dữ liệu không đúng ");
                         }
                     }
                 }
@@ -119,6 +119,7 @@ namespace QUANLYNHANSU
                 {
                     tb_ShiftType newshifttype = new tb_ShiftType
                     {
+                        CreatedBy = "Trần Nhật Phi",
                         CreatedDate = DateTime.Now,
                         State = true,
                         ShiftTypeName = txtTenLoaiCa.Text,
@@ -141,50 +142,62 @@ namespace QUANLYNHANSU
                 {
                     try
                     {
-                        int rowIndex = gcDanhSach.FocusedView.DataRowCount;
-                        if (rowIndex > 0)
+                        if (string.IsNullOrEmpty(txtHeSo.Text) || string.IsNullOrEmpty(txtTenLoaiCa.Text))
                         {
-                            GridView gridView = gcDanhSach.MainView as GridView;
-                            tb_ShiftType currentRowHandle = gridView.FocusedRowObject as tb_ShiftType;
-                            if (currentRowHandle != null)
+                            MessageBox.Show("vui lòng nhập đầy đủ tên loại ca và hệ số");
+                        }
+                        else
+                        {
+
+
+                            int rowIndex = gcDanhSach.FocusedView.DataRowCount;
+                            if (rowIndex > 0)
                             {
-
-                                using (var transaction = conn.Database.BeginTransaction())
+                                GridView gridView = gcDanhSach.MainView as GridView;
+                                tb_ShiftType currentRowHandle = gridView.FocusedRowObject as tb_ShiftType;
+                                if (currentRowHandle != null)
                                 {
-                                    try
+
+                                    using (var transaction = conn.Database.BeginTransaction())
                                     {
-                                        
-                                        var shifttypeID = conn.tb_ShiftType.FirstOrDefault(j => j.ShiftTypeID == currentRowHandle.ShiftTypeID);
-                                        if (shifttypeID != null)
+                                        try
                                         {
-                                            if (string.IsNullOrEmpty(txtHeSo.Text) || string.IsNullOrEmpty(txtTenLoaiCa.Text)){
-                                                MessageBox.Show("vui lòng nhập đầy đủ tên loại ca và hệ số");
-                                            }
-                                            else
+
+                                            var shifttypeID = conn.tb_ShiftType.FirstOrDefault(j => j.ShiftTypeID == currentRowHandle.ShiftTypeID);
+                                            if (shifttypeID != null)
                                             {
-                                                currentRowHandle.ShiftTypeName = txtTenLoaiCa.Text;
-                                                shifttypeID.ShiftTypeName = txtTenLoaiCa.Text;
-                                                currentRowHandle.Coefficinet = double.Parse(txtHeSo.Text);
-                                                shifttypeID.Coefficinet = double.Parse(txtHeSo.Text);
-                                                //currentRowHandle.UpdatedDate = DateTime.Now;
-                                                shifttypeID.UpdatedDate = DateTime.Now;
-                                                conn.SaveChanges();
-                                                transaction.Commit();
-                                                MessageBox.Show("sửa loại ca mới thành công ", "thông báo");
-                                                LoadData();
-                                                ToggleFormState(true);
-                                                ClearForm();
+                                                if (string.IsNullOrEmpty(txtHeSo.Text) || string.IsNullOrEmpty(txtTenLoaiCa.Text))
+                                                {
+                                                    MessageBox.Show("vui lòng nhập đầy đủ tên loại ca và hệ số");
+                                                }
+                                                else
+                                                {
+
+                                                    currentRowHandle.ShiftTypeName = txtTenLoaiCa.Text;
+                                                    shifttypeID.ShiftTypeName = txtTenLoaiCa.Text;
+                                                    currentRowHandle.Coefficinet = double.Parse(txtHeSo.Text);
+                                                    shifttypeID.Coefficinet = double.Parse(txtHeSo.Text);
+                                                    //currentRowHandle.UpdatedDate = DateTime.Now;
+                                                    shifttypeID.UpdatedBy = "Trần Nhật Phi";
+                                                    shifttypeID.UpdatedDate = DateTime.Now;
+                                                    conn.SaveChanges();
+                                                    transaction.Commit();
+                                                    MessageBox.Show("sửa loại ca mới thành công ", "thông báo");
+                                                    LoadData();
+                                                    ToggleFormState(true);
+                                                    ClearForm();
+
+                                                }
+
 
                                             }
-                                               
-                                            
-                                        }
 
-                                    }
-                                    catch (DbUpdateException ex)
-                                    {
-                                        transaction.Rollback();
-                                        throw new Exception("Error while edit shift type: " + ex.InnerException.Message);
+                                        }
+                                        catch (DbUpdateException ex)
+                                        {
+                                            transaction.Rollback();
+                                            throw new Exception("Lỗi trong khi sửa loại Công: " + ex.InnerException.Message);
+                                        }
                                     }
                                 }
                             }
@@ -222,6 +235,13 @@ namespace QUANLYNHANSU
             {
                 e.Cancel = true;
             }
+        }
+
+        private void gcDanhSach_Click(object sender, EventArgs e)
+        {
+            var focusedObject = (gcDanhSach.MainView as GridView).FocusedRowObject;
+            txtHeSo.Text = focusedObject.GetType().GetProperty("Coefficinet").GetValue(focusedObject).ToString();
+            txtTenLoaiCa.Text = focusedObject.GetType().GetProperty("ShiftTypeName").GetValue(focusedObject).ToString();
         }
     }
 }

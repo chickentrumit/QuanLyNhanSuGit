@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -354,6 +355,9 @@
             // 
             this.gcDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcDanhSach.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            gridLevelNode1.RelationName = "Level1";
+            this.gcDanhSach.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gcDanhSach.Location = new System.Drawing.Point(0, 0);
             this.gcDanhSach.MainView = this.gvDanhSach;
             this.gcDanhSach.Margin = new System.Windows.Forms.Padding(2);
@@ -363,6 +367,7 @@
             this.gcDanhSach.TabIndex = 0;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
+            this.gcDanhSach.Click += new System.EventHandler(this.gcDanhSach_Click);
             // 
             // gvDanhSach
             // 

@@ -1,4 +1,4 @@
-﻿using DataLayer.model;
+﻿    using DataLayer.model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -28,6 +28,7 @@ namespace BussinessLayer
 
                     try
                     {
+                        
                         conn.tb_JobType.Add(tb_jobtypes);
                         conn.SaveChanges();
                         transaction.Commit();
@@ -35,7 +36,7 @@ namespace BussinessLayer
                     catch (Exception)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while adding job type. Please check your input and try again.");
+                        throw new Exception("lỗi khi thêm . vui lòng kiểm tra đầu vào của bạn và thử lại!!!.");
                     }
                 }
             }
@@ -57,6 +58,7 @@ namespace BussinessLayer
                         var jobTypeToDelete = conn.tb_JobType.FirstOrDefault(j => j.JobTypeID == jobTypeID);
                         if (jobTypeToDelete != null)
                         {
+                            jobTypeToDelete.DeletedBy = "Trần Nhật Phi";
                             jobTypeToDelete.DeletedDate = DateTime.Now;
                             jobTypeToDelete.State = false;
                             conn.SaveChanges();
@@ -64,13 +66,13 @@ namespace BussinessLayer
                         }
                         else
                         {
-                            throw new Exception("job type not found.");
+                            throw new Exception("loại công không tìm thấy.");
                         }
                     }
                     catch (DbUpdateException ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error while deleting job type: " + ex.InnerException.Message);
+                        throw new Exception("lỗi khi xóa loại công: " + ex.InnerException.Message);
                     }
                 }
             }

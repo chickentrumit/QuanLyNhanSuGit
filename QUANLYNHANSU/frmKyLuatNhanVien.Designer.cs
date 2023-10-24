@@ -385,6 +385,7 @@
             this.gcDanhSach.TabIndex = 0;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
+            this.gcDanhSach.Click += new System.EventHandler(this.gcDanhSach_Click);
             // 
             // gvDanhSach
             // 

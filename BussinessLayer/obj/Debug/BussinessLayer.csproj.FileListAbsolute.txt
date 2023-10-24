@@ -7,3 +7,18 @@ D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\obj\Debug\BussinessLaye
 D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\bin\Debug\DataLayer.dll
 D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\bin\Debug\DataLayer.pdb
 D:\visual studio2022 project\QUANLYNHANSU\BussinessLayer\obj\Debug\BussinessLayer.csproj.CopyComplete
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\BussinessLayer.dll
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\BussinessLayer.pdb
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\DataLayer.dll
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\DataLayer.pdb
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\obj\Debug\BussinessLayer.csproj.AssemblyReference.cache
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\obj\Debug\BussinessLayer.csproj.CoreCompileInputs.cache
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\obj\Debug\BussinessLayer.csproj.CopyComplete
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\obj\Debug\BussinessLayer.dll
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\obj\Debug\BussinessLayer.pdb
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\EntityFramework.dll
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\DataLayer.dll.config
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\EntityFramework.xml
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\BussinessLayer.dll.config
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\git\Winform_QuanLyNhanSu\BussinessLayer\bin\Debug\EntityFramework.SqlServer.xml

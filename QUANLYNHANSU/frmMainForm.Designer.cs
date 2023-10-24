@@ -61,6 +61,7 @@
             this.btnChiTietCong = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhanHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnTroGiup = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupTaiKhoan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupQuanLyChung = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -77,7 +78,6 @@
             this.ribbonPagePhanHoi = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupPhanHoi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMainForm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,7 +135,7 @@
             this.ribbonPageHopDongQuyetDinh,
             this.ribbonPageChamCongTinhLuong,
             this.ribbonPagePhanHoi});
-            this.ribbonMainForm.Size = new System.Drawing.Size(1934, 321);
+            this.ribbonMainForm.Size = new System.Drawing.Size(1932, 283);
             this.ribbonMainForm.StatusBar = this.ribbonStatusBar;
             // 
             // btnDangXuat
@@ -377,6 +377,12 @@
             this.btnTroGiup.ImageOptions.LargeImage = global::QUANLYNHANSU.Properties.Resources.knowledgebasearticle_32x32;
             this.btnTroGiup.Name = "btnTroGiup";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 32;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // ribbonPageHeThong
             // 
             this.ribbonPageHeThong.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -504,24 +510,18 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 857);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 864);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(102272, 88527, 102272, 88527);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMainForm;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1934, 58);
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 32;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1932, 51);
             // 
             // frmMainForm
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1934, 915);
+            this.ClientSize = new System.Drawing.Size(1932, 915);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonMainForm);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
