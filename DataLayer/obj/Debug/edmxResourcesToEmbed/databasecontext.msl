@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYNHANSUModelStoreContainer" CdmEntityContainer="QUANLYNHANSUEntities">
+    <EntitySetMapping Name="tb_AllowanceJob">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModel.tb_AllowanceJob">
+        <MappingFragment StoreEntitySet="tb_AllowanceJob">
+          <ScalarProperty Name="AllowanceJobID" ColumnName="AllowanceJobID" />
+          <ScalarProperty Name="AllowanceJobName" ColumnName="AllowanceJobName" />
+          <ScalarProperty Name="AllowanceAmount" ColumnName="AllowanceAmount" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

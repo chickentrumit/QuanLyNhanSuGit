@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QUANLYNHANSUConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QUANLYNHANSUConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataLayer.Properties.Settings.GlobalReference.Default.QUANLYNHANSUConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QUANLYNHANSUConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [tb.Employee].FullName, [tb.HealthInsurance].HealthInsuranceID, [tb.SocialInsurance].SocialInsuranceID, [tb.EmployeePayperiod].HolidayWork, [tb.EmployeePayperiod].SundayWork, [tb.EmployeePayperiod].PermittedDayOff, 
+                  [tb.EmployeePayperiod].UnauthorizedDayOff
+FROM     [tb.Employee] INNER JOIN
+                  [tb.EmployeePayperiod] ON [tb.Employee].EmployeeID = [tb.EmployeePayperiod].EmployeeID INNER JOIN
+                  [tb.HealthInsurance] ON [tb.Employee].EmployeeID = [tb.HealthInsurance].EmployeeID INNER JOIN
+                  [tb.SocialInsurance] ON [tb.Employee].EmployeeID = [tb.SocialInsurance].EmployeeID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="HealthInsuranceID" DataSetColumn="HealthInsuranceID" />
+              <Mapping SourceColumn="SocialInsuranceID" DataSetColumn="SocialInsuranceID" />
+              <Mapping SourceColumn="HolidayWork" DataSetColumn="HolidayWork" />
+              <Mapping SourceColumn="SundayWork" DataSetColumn="SundayWork" />
+              <Mapping SourceColumn="PermittedDayOff" DataSetColumn="PermittedDayOff" />
+              <Mapping SourceColumn="UnauthorizedDayOff" DataSetColumn="UnauthorizedDayOff" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_UserColumnName="FullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HealthInsuranceID" msprop:Generator_ColumnPropNameInRow="HealthInsuranceID" msprop:Generator_ColumnPropNameInTable="HealthInsuranceIDColumn" msprop:Generator_ColumnVarNameInTable="columnHealthInsuranceID" msprop:Generator_UserColumnName="HealthInsuranceID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SocialInsuranceID" msprop:Generator_ColumnPropNameInRow="SocialInsuranceID" msprop:Generator_ColumnPropNameInTable="SocialInsuranceIDColumn" msprop:Generator_ColumnVarNameInTable="columnSocialInsuranceID" msprop:Generator_UserColumnName="SocialInsuranceID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HolidayWork" msprop:Generator_ColumnPropNameInRow="HolidayWork" msprop:Generator_ColumnPropNameInTable="HolidayWorkColumn" msprop:Generator_ColumnVarNameInTable="columnHolidayWork" msprop:Generator_UserColumnName="HolidayWork" type="xs:double" minOccurs="0" />
+              <xs:element name="SundayWork" msprop:Generator_ColumnPropNameInRow="SundayWork" msprop:Generator_ColumnPropNameInTable="SundayWorkColumn" msprop:Generator_ColumnVarNameInTable="columnSundayWork" msprop:Generator_UserColumnName="SundayWork" type="xs:double" minOccurs="0" />
+              <xs:element name="PermittedDayOff" msprop:Generator_ColumnPropNameInRow="PermittedDayOff" msprop:Generator_ColumnPropNameInTable="PermittedDayOffColumn" msprop:Generator_ColumnVarNameInTable="columnPermittedDayOff" msprop:Generator_UserColumnName="PermittedDayOff" type="xs:double" minOccurs="0" />
+              <xs:element name="UnauthorizedDayOff" msprop:Generator_ColumnPropNameInRow="UnauthorizedDayOff" msprop:Generator_ColumnPropNameInTable="UnauthorizedDayOffColumn" msprop:Generator_ColumnVarNameInTable="columnUnauthorizedDayOff" msprop:Generator_UserColumnName="UnauthorizedDayOff" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

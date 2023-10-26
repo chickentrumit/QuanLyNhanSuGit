@@ -122,9 +122,12 @@ namespace QUANLYNHANSU
                 {
                     MessageBox.Show("vui lòng chọn ID khác ID này đã có người sử dụng");
                 }
+                else if (BHYTBUS.ResignationIDExists(cbb_MaNhanVien.Text))
+                {
+                    MessageBox.Show("vui lòng chọn ID nhân viên khác ID nhân viên này đã có người sử dụng");
+                }
                 else
                 {
-
                     tb_HealthInsurance newHealthInsurance = new tb_HealthInsurance
                     {
 
@@ -136,9 +139,7 @@ namespace QUANLYNHANSU
                     };
                     BHYTBUS.addtb_HealthInsurance(newHealthInsurance);
                     LoadData();
-
-                    MessageBox.Show("thêm 1 BHYT mới thành công ", "thông báo");
-                    _isNewRecord = false;
+                   _isNewRecord = false;
                     ToggleFormState(true);
                     ClearForm();
                 }

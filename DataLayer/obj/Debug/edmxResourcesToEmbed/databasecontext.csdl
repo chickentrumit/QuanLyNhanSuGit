@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYNHANSUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_AllowanceJob">
+    <Key>
+      <PropertyRef Name="AllowanceJobID" />
+    </Key>
+    <Property Name="AllowanceJobID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AllowanceJobName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="AllowanceAmount" Type="Int32" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <Property Name="DeletedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="QUANLYNHANSUEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_AllowanceJob" EntityType="Self.tb_AllowanceJob" />
+  </EntityContainer>
+</Schema>

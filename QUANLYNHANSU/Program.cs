@@ -30,10 +30,10 @@ namespace QUANLYNHANSU
             //Application.Run(new frmUngLuongNhanVien());
             //Application.Run(new frmThoiViecNhanVien());
             //Application.Run(new frmKyCong());
-            //Application.Run(new frmBHYT());
+           // Application.Run(new frmBHYT());
             //Application.Run(new frmBHXH());
             //Application.Run(new frmKyCongNhanVien());
-            Application.Run(new frmPhanQuyenTaiKhoan());
+            Application.Run(new frmReportView());
         }
-    }
+    }   
 }

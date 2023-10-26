@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYNHANSUModelenitiyStoreContainer" CdmEntityContainer="QUANLYNHANSUEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Account">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_Account">
+        <MappingFragment StoreEntitySet="tb_Account">
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_AccountPermission">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_AccountPermission">
+        <MappingFragment StoreEntitySet="tb_AccountPermission">
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AddPermission" ColumnName="AddPermission" />
+          <ScalarProperty Name="DeletedPermission" ColumnName="DeletedPermission" />
+          <ScalarProperty Name="UpdatedPermission" ColumnName="UpdatedPermission" />
+          <ScalarProperty Name="Disable" ColumnName="Disable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_AllowanceJob">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_AllowanceJob">
+        <MappingFragment StoreEntitySet="tb_AllowanceJob">
+          <ScalarProperty Name="AllowanceJobID" ColumnName="AllowanceJobID" />
+          <ScalarProperty Name="AllowanceJobName" ColumnName="AllowanceJobName" />
+          <ScalarProperty Name="AllowanceAmount" ColumnName="AllowanceAmount" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Department">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_Department">
+        <MappingFragment StoreEntitySet="tb_Department">
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="DepartmentAllowance" ColumnName="DepartmentAllowance" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Employee">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_Employee">
+        <MappingFragment StoreEntitySet="tb_Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="CitizenIdentification" ColumnName="CitizenIdentification" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_EmployeeAllowanceJob">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_EmployeeAllowanceJob">
+        <MappingFragment StoreEntitySet="tb_EmployeeAllowanceJob">
+          <ScalarProperty Name="EmployeeAllowanceJobID" ColumnName="EmployeeAllowanceJobID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="AllowanceJobID" ColumnName="AllowanceJobID" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_EmployeeDiscipline">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_EmployeeDiscipline">
+        <MappingFragment StoreEntitySet="tb_EmployeeDiscipline">
+          <ScalarProperty Name="EmployeeDisciplineID" ColumnName="EmployeeDisciplineID" />
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_EmployeePayperiod">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_EmployeePayperiod">
+        <MappingFragment StoreEntitySet="tb_EmployeePayperiod">
+          <ScalarProperty Name="EmployeePayperiodID" ColumnName="EmployeePayperiodID" />
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="WorkdayMonth" ColumnName="WorkdayMonth" />
+          <ScalarProperty Name="PermittedDayOff" ColumnName="PermittedDayOff" />
+          <ScalarProperty Name="UnauthorizedDayOff" ColumnName="UnauthorizedDayOff" />
+          <ScalarProperty Name="HolidayWork" ColumnName="HolidayWork" />
+          <ScalarProperty Name="SundayWork" ColumnName="SundayWork" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_EmployeePromotionTranfer">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_EmployeePromotionTranfer">
+        <MappingFragment StoreEntitySet="tb_EmployeePromotionTranfer">
+          <ScalarProperty Name="EmployeePromotionID" ColumnName="EmployeePromotionID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_EmployeeReward">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_EmployeeReward">
+        <MappingFragment StoreEntitySet="tb_EmployeeReward">
+          <ScalarProperty Name="EmployeeRewardID" ColumnName="EmployeeRewardID" />
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_EmployeeSalaryIncrease">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_EmployeeSalaryIncrease">
+        <MappingFragment StoreEntitySet="tb_EmployeeSalaryIncrease">
+          <ScalarProperty Name="EmployeeSalaryIncrease" ColumnName="EmployeeSalaryIncrease" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="ResponsibleSalary" ColumnName="ResponsibleSalary" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_EmplymentContract">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_EmplymentContract">
+        <MappingFragment StoreEntitySet="tb_EmplymentContract">
+          <ScalarProperty Name="EmploymentContracID" ColumnName="EmploymentContracID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="ContractDuration" ColumnName="ContractDuration" />
+          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+          <ScalarProperty Name="ContractSignCount" ColumnName="ContractSignCount" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_HealthInsurance">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_HealthInsurance">
+        <MappingFragment StoreEntitySet="tb_HealthInsurance">
+          <ScalarProperty Name="HealthInsuranceID" ColumnName="HealthInsuranceID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="HealthInsuranceCreatedDate" ColumnName="HealthInsuranceCreatedDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_JobType">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_JobType">
+        <MappingFragment StoreEntitySet="tb_JobType">
+          <ScalarProperty Name="JobTypeID" ColumnName="JobTypeID" />
+          <ScalarProperty Name="JobTypeName" ColumnName="JobTypeName" />
+          <ScalarProperty Name="Coefficinet" ColumnName="Coefficinet" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_PayPeriod">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_PayPeriod">
+        <MappingFragment StoreEntitySet="tb_PayPeriod">
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="WorkDayInMonth" ColumnName="WorkDayInMonth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_PermissionList">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_PermissionList">
+        <MappingFragment StoreEntitySet="tb_PermissionList">
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+          <ScalarProperty Name="PermissionParent" ColumnName="PermissionParent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Position">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_Position">
+        <MappingFragment StoreEntitySet="tb_Position">
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="PositionAllowance" ColumnName="PositionAllowance" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ProgramParameters">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_ProgramParameters">
+        <MappingFragment StoreEntitySet="tb_ProgramParameters">
+          <ScalarProperty Name="ProgramParametersID" ColumnName="ProgramParametersID" />
+          <ScalarProperty Name="MaleStartAge" ColumnName="MaleStartAge" />
+          <ScalarProperty Name="MaleEndAge" ColumnName="MaleEndAge" />
+          <ScalarProperty Name="FemaleStartAge" ColumnName="FemaleStartAge" />
+          <ScalarProperty Name="FemaleEndAge" ColumnName="FemaleEndAge" />
+          <ScalarProperty Name="HealthInsurancePercentage" ColumnName="HealthInsurancePercentage" />
+          <ScalarProperty Name="SocialInsurancePercentage" ColumnName="SocialInsurancePercentage" />
+          <ScalarProperty Name="PersonalIncomeTax" ColumnName="PersonalIncomeTax" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Resignation">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_Resignation">
+        <MappingFragment StoreEntitySet="tb_Resignation">
+          <ScalarProperty Name="ResignationID" ColumnName="ResignationID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="ResignationDate" ColumnName="ResignationDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="KeyResiqnation" ColumnName="KeyResiqnation" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_SalaryAdvance">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_SalaryAdvance">
+        <MappingFragment StoreEntitySet="tb_SalaryAdvance">
+          <ScalarProperty Name="SalaryAdvanceID" ColumnName="SalaryAdvanceID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="AdvanceAmount" ColumnName="AdvanceAmount" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_SalaryCalculation">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_SalaryCalculation">
+        <MappingFragment StoreEntitySet="tb_SalaryCalculation">
+          <ScalarProperty Name="SalaryCalculationID" ColumnName="SalaryCalculationID" />
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="OvertimeAmount" ColumnName="OvertimeAmount" />
+          <ScalarProperty Name="OtherBonuses" ColumnName="OtherBonuses" />
+          <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ShiftType">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_ShiftType">
+        <MappingFragment StoreEntitySet="tb_ShiftType">
+          <ScalarProperty Name="ShiftTypeID" ColumnName="ShiftTypeID" />
+          <ScalarProperty Name="ShiftTypeName" ColumnName="ShiftTypeName" />
+          <ScalarProperty Name="Coefficinet" ColumnName="Coefficinet" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_SocialInsurance">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.tb_SocialInsurance">
+        <MappingFragment StoreEntitySet="tb_SocialInsurance">
+          <ScalarProperty Name="SocialInsuranceID" ColumnName="SocialInsuranceID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="SocialInsuranceCreatedDate" ColumnName="SocialInsuranceCreatedDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeAllowanceJobDetails">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.EmployeeAllowanceJobDetail">
+        <MappingFragment StoreEntitySet="EmployeeAllowanceJobDetail">
+          <ScalarProperty Name="EmployeeAllowanceJobID" ColumnName="EmployeeAllowanceJobID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="PayPeriodID" ColumnName="PayPeriodID" />
+          <ScalarProperty Name="Calculation" ColumnName="Calculation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeDetails">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.EmployeeDetail">
+        <MappingFragment StoreEntitySet="EmployeeDetail">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="CitizenIdentification" ColumnName="CitizenIdentification" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="ResponsibleSalary" ColumnName="ResponsibleSalary" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmplymentContractDetails">
+      <EntityTypeMapping TypeName="QUANLYNHANSUModelenitiy.EmplymentContractDetail">
+        <MappingFragment StoreEntitySet="EmplymentContractDetail">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="CitizenIdentification" ColumnName="CitizenIdentification" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="ResponsibleSalary" ColumnName="ResponsibleSalary" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="EmploymentContracID" ColumnName="EmploymentContracID" />
+          <ScalarProperty Name="ContractDuration" ColumnName="ContractDuration" />
+          <ScalarProperty Name="ContractSignCount" ColumnName="ContractSignCount" />
+          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYNHANSUModelenitiy.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tb_Account">
+    <Key>
+      <PropertyRef Name="AccountName" />
+    </Key>
+    <Property Name="AccountName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="25" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Role" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_AccountPermission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="AddPermission" Type="bit" />
+    <Property Name="DeletedPermission" Type="bit" />
+    <Property Name="UpdatedPermission" Type="bit" />
+    <Property Name="Disable" Type="bit" />
+  </EntityType>
+  <EntityType Name="tb_AllowanceJob">
+    <Key>
+      <PropertyRef Name="AllowanceJobID" />
+    </Key>
+    <Property Name="AllowanceJobID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AllowanceJobName" Type="nvarchar" MaxLength="40" />
+    <Property Name="AllowanceAmount" Type="int" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DepartmentAllowance" Type="int" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="40" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="60" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="CitizenIdentification" Type="nvarchar" MaxLength="15" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="JoinDate" Type="smalldatetime" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_EmployeeAllowanceJob">
+    <Key>
+      <PropertyRef Name="EmployeeAllowanceJobID" />
+    </Key>
+    <Property Name="EmployeeAllowanceJobID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="PayPeriodID" Type="int" Nullable="false" />
+    <Property Name="AllowanceJobID" Type="smallint" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_EmployeeDiscipline">
+    <Key>
+      <PropertyRef Name="EmployeeDisciplineID" />
+    </Key>
+    <Property Name="EmployeeDisciplineID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PayPeriodID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_EmployeePayperiod">
+    <Key>
+      <PropertyRef Name="EmployeePayperiodID" />
+    </Key>
+    <Property Name="EmployeePayperiodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayPeriodID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="WorkdayMonth" Type="int" />
+    <Property Name="PermittedDayOff" Type="float" />
+    <Property Name="UnauthorizedDayOff" Type="float" />
+    <Property Name="HolidayWork" Type="float" />
+    <Property Name="SundayWork" Type="float" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_EmployeePromotionTranfer">
+    <Key>
+      <PropertyRef Name="EmployeePromotionID" />
+    </Key>
+    <Property Name="EmployeePromotionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="PositionID" Type="tinyint" Nullable="false" />
+    <Property Name="DepartmentID" Type="tinyint" Nullable="false" />
+    <Property Name="EffectiveDate" Type="date" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_EmployeeReward">
+    <Key>
+      <PropertyRef Name="EmployeeRewardID" />
+    </Key>
+    <Property Name="EmployeeRewardID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PayPeriodID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_EmployeeSalaryIncrease">
+    <Key>
+      <PropertyRef Name="EmployeeSalaryIncrease" />
+    </Key>
+    <Property Name="EmployeeSalaryIncrease" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="ResponsibleSalary" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_EmplymentContract">
+    <Key>
+      <PropertyRef Name="EmploymentContracID" />
+    </Key>
+    <Property Name="EmploymentContracID" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ContractDuration" Type="int" />
+    <Property Name="ContractEndDate" Type="date" />
+    <Property Name="ContractSignCount" Type="int" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_HealthInsurance">
+    <Key>
+      <PropertyRef Name="HealthInsuranceID" />
+    </Key>
+    <Property Name="HealthInsuranceID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="HealthInsuranceCreatedDate" Type="date" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_JobType">
+    <Key>
+      <PropertyRef Name="JobTypeID" />
+    </Key>
+    <Property Name="JobTypeID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobTypeName" Type="nvarchar" MaxLength="30" />
+    <Property Name="Coefficinet" Type="float" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_PayPeriod">
+    <Key>
+      <PropertyRef Name="PayPeriodID" />
+    </Key>
+    <Property Name="PayPeriodID" Type="int" Nullable="false" />
+    <Property Name="Month" Type="tinyint" />
+    <Property Name="Year" Type="tinyint" />
+    <Property Name="WorkDayInMonth" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="tb_PermissionList">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="PermissionID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Role" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="PermissionName" Type="nvarchar" MaxLength="30" />
+    <Property Name="PermissionParent" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tb_Position">
+    <Key>
+      <PropertyRef Name="PositionID" />
+    </Key>
+    <Property Name="PositionID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="20" />
+    <Property Name="PositionAllowance" Type="int" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_ProgramParameters">
+    <Key>
+      <PropertyRef Name="ProgramParametersID" />
+    </Key>
+    <Property Name="ProgramParametersID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaleStartAge" Type="tinyint" />
+    <Property Name="MaleEndAge" Type="tinyint" />
+    <Property Name="FemaleStartAge" Type="tinyint" />
+    <Property Name="FemaleEndAge" Type="tinyint" />
+    <Property Name="HealthInsurancePercentage" Type="float" />
+    <Property Name="SocialInsurancePercentage" Type="float" />
+    <Property Name="PersonalIncomeTax" Type="float" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdateBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdateDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_Resignation">
+    <Key>
+      <PropertyRef Name="ResignationID" />
+    </Key>
+    <Property Name="ResignationID" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="ResignationDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="KeyResiqnation" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_SalaryAdvance">
+    <Key>
+      <PropertyRef Name="SalaryAdvanceID" />
+    </Key>
+    <Property Name="SalaryAdvanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="PayPeriodID" Type="int" />
+    <Property Name="AdvanceAmount" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_SalaryCalculation">
+    <Key>
+      <PropertyRef Name="SalaryCalculationID" />
+    </Key>
+    <Property Name="SalaryCalculationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayPeriodID" Type="int" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="OvertimeAmount" Type="float" />
+    <Property Name="OtherBonuses" Type="float" />
+    <Property Name="NetSalary" Type="float" />
+  </EntityType>
+  <EntityType Name="tb_ShiftType">
+    <Key>
+      <PropertyRef Name="ShiftTypeID" />
+    </Key>
+    <Property Name="ShiftTypeID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShiftTypeName" Type="nvarchar" MaxLength="30" />
+    <Property Name="Coefficinet" Type="float" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tb_SocialInsurance">
+    <Key>
+      <PropertyRef Name="SocialInsuranceID" />
+    </Key>
+    <Property Name="SocialInsuranceID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmployeeID" Type="char" MaxLength="10" />
+    <Property Name="SocialInsuranceCreatedDate" Type="date" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QUANLYNHANSU.dbo.EmployeeAllowanceJobDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeeAllowanceJobDetail">
+    <Key>
+      <PropertyRef Name="EmployeeAllowanceJobID" />
+      <PropertyRef Name="PayPeriodID" />
+    </Key>
+    <Property Name="EmployeeAllowanceJobID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="60" />
+    <Property Name="PayPeriodID" Type="int" Nullable="false" />
+    <Property Name="Calculation" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QUANLYNHANSU.dbo.EmployeeDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeeDetail">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="40" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="60" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="CitizenIdentification" Type="nvarchar" MaxLength="15" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="ResponsibleSalary" Type="int" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="20" />
+    <Property Name="JoinDate" Type="smalldatetime" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QUANLYNHANSU.dbo.EmplymentContractDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmplymentContractDetail">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="40" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="60" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="CitizenIdentification" Type="nvarchar" MaxLength="15" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="ResponsibleSalary" Type="int" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="20" />
+    <Property Name="JoinDate" Type="smalldatetime" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="EmploymentContracID" Type="char" MaxLength="15" />
+    <Property Name="ContractDuration" Type="int" />
+    <Property Name="ContractSignCount" Type="int" />
+    <Property Name="ContractEndDate" Type="date" />
+  </EntityType>
+  <Association Name="FK_tb_AccountPermission_tb_Account">
+    <End Role="tb_Account" Type="Self.tb_Account" Multiplicity="1" />
+    <End Role="tb_AccountPermission" Type="Self.tb_AccountPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Account">
+        <PropertyRef Name="AccountName" />
+      </Principal>
+      <Dependent Role="tb_AccountPermission">
+        <PropertyRef Name="AccountName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeeAllowanceJob_tb_PayPeriod">
+    <End Role="tb_PayPeriod" Type="Self.tb_PayPeriod" Multiplicity="1" />
+    <End Role="tb_EmployeeAllowanceJob" Type="Self.tb_EmployeeAllowanceJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_PayPeriod">
+        <PropertyRef Name="PayPeriodID" />
+      </Principal>
+      <Dependent Role="tb_EmployeeAllowanceJob">
+        <PropertyRef Name="PayPeriodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeeDiscipline_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_EmployeeDiscipline" Type="Self.tb_EmployeeDiscipline" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_EmployeeDiscipline">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeePayperiod_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="1" />
+    <End Role="tb_EmployeePayperiod" Type="Self.tb_EmployeePayperiod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_EmployeePayperiod">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeePayperiod_tb_PayPeriod">
+    <End Role="tb_PayPeriod" Type="Self.tb_PayPeriod" Multiplicity="1" />
+    <End Role="tb_EmployeePayperiod" Type="Self.tb_EmployeePayperiod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_PayPeriod">
+        <PropertyRef Name="PayPeriodID" />
+      </Principal>
+      <Dependent Role="tb_EmployeePayperiod">
+        <PropertyRef Name="PayPeriodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeePromotion_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_EmployeePromotionTranfer" Type="Self.tb_EmployeePromotionTranfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_EmployeePromotionTranfer">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeePromotionTranfer_tb_Department">
+    <End Role="tb_Department" Type="Self.tb_Department" Multiplicity="1" />
+    <End Role="tb_EmployeePromotionTranfer" Type="Self.tb_EmployeePromotionTranfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="tb_EmployeePromotionTranfer">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeePromotionTranfer_tb_Position">
+    <End Role="tb_Position" Type="Self.tb_Position" Multiplicity="1" />
+    <End Role="tb_EmployeePromotionTranfer" Type="Self.tb_EmployeePromotionTranfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Position">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="tb_EmployeePromotionTranfer">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeeReward_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_EmployeeReward" Type="Self.tb_EmployeeReward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_EmployeeReward">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeeReward_tb_PayPeriod">
+    <End Role="tb_PayPeriod" Type="Self.tb_PayPeriod" Multiplicity="1" />
+    <End Role="tb_EmployeeReward" Type="Self.tb_EmployeeReward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_PayPeriod">
+        <PropertyRef Name="PayPeriodID" />
+      </Principal>
+      <Dependent Role="tb_EmployeeReward">
+        <PropertyRef Name="PayPeriodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmployeeSalaryIncrease_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="1" />
+    <End Role="tb_EmployeeSalaryIncrease" Type="Self.tb_EmployeeSalaryIncrease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_EmployeeSalaryIncrease">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_EmplymentContract_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="1" />
+    <End Role="tb_EmplymentContract" Type="Self.tb_EmplymentContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_EmplymentContract">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_HealthInsurance_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_HealthInsurance" Type="Self.tb_HealthInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_HealthInsurance">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_PermissionList_tb_AccountPermission">
+    <End Role="tb_AccountPermission" Type="Self.tb_AccountPermission" Multiplicity="1" />
+    <End Role="tb_PermissionList" Type="Self.tb_PermissionList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_AccountPermission">
+        <PropertyRef Name="PermissionID" />
+      </Principal>
+      <Dependent Role="tb_PermissionList">
+        <PropertyRef Name="PermissionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Resignation_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_Resignation" Type="Self.tb_Resignation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_Resignation">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_SalaryAdvance_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_SalaryAdvance" Type="Self.tb_SalaryAdvance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_SalaryAdvance">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_SalaryAdvance_tb_PayPeriod">
+    <End Role="tb_PayPeriod" Type="Self.tb_PayPeriod" Multiplicity="0..1" />
+    <End Role="tb_SalaryAdvance" Type="Self.tb_SalaryAdvance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_PayPeriod">
+        <PropertyRef Name="PayPeriodID" />
+      </Principal>
+      <Dependent Role="tb_SalaryAdvance">
+        <PropertyRef Name="PayPeriodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_SalaryCalculation_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_SalaryCalculation" Type="Self.tb_SalaryCalculation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_SalaryCalculation">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_SocialInsurance_tb_Employee">
+    <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
+    <End Role="tb_SocialInsurance" Type="Self.tb_SocialInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="tb_SocialInsurance">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUANLYNHANSUModelenitiyStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Account" EntityType="Self.tb_Account" Schema="dbo" Table="tb.Account" store:Type="Tables" />
+    <EntitySet Name="tb_AccountPermission" EntityType="Self.tb_AccountPermission" Schema="dbo" Table="tb.AccountPermission" store:Type="Tables" />
+    <EntitySet Name="tb_AllowanceJob" EntityType="Self.tb_AllowanceJob" Schema="dbo" Table="tb.AllowanceJob" store:Type="Tables" />
+    <EntitySet Name="tb_Department" EntityType="Self.tb_Department" Schema="dbo" Table="tb.Department" store:Type="Tables" />
+    <EntitySet Name="tb_Employee" EntityType="Self.tb_Employee" Schema="dbo" Table="tb.Employee" store:Type="Tables" />
+    <EntitySet Name="tb_EmployeeAllowanceJob" EntityType="Self.tb_EmployeeAllowanceJob" Schema="dbo" Table="tb.EmployeeAllowanceJob" store:Type="Tables" />
+    <EntitySet Name="tb_EmployeeDiscipline" EntityType="Self.tb_EmployeeDiscipline" Schema="dbo" Table="tb.EmployeeDiscipline" store:Type="Tables" />
+    <EntitySet Name="tb_EmployeePayperiod" EntityType="Self.tb_EmployeePayperiod" Schema="dbo" Table="tb.EmployeePayperiod" store:Type="Tables" />
+    <EntitySet Name="tb_EmployeePromotionTranfer" EntityType="Self.tb_EmployeePromotionTranfer" Schema="dbo" Table="tb.EmployeePromotionTranfer" store:Type="Tables" />
+    <EntitySet Name="tb_EmployeeReward" EntityType="Self.tb_EmployeeReward" Schema="dbo" Table="tb.EmployeeReward" store:Type="Tables" />
+    <EntitySet Name="tb_EmployeeSalaryIncrease" EntityType="Self.tb_EmployeeSalaryIncrease" Schema="dbo" Table="tb.EmployeeSalaryIncrease" store:Type="Tables" />
+    <EntitySet Name="tb_EmplymentContract" EntityType="Self.tb_EmplymentContract" Schema="dbo" Table="tb.EmplymentContract" store:Type="Tables" />
+    <EntitySet Name="tb_HealthInsurance" EntityType="Self.tb_HealthInsurance" Schema="dbo" Table="tb.HealthInsurance" store:Type="Tables" />
+    <EntitySet Name="tb_JobType" EntityType="Self.tb_JobType" Schema="dbo" Table="tb.JobType" store:Type="Tables" />
+    <EntitySet Name="tb_PayPeriod" EntityType="Self.tb_PayPeriod" Schema="dbo" Table="tb.PayPeriod" store:Type="Tables" />
+    <EntitySet Name="tb_PermissionList" EntityType="Self.tb_PermissionList" Schema="dbo" Table="tb.PermissionList" store:Type="Tables" />
+    <EntitySet Name="tb_Position" EntityType="Self.tb_Position" Schema="dbo" Table="tb.Position" store:Type="Tables" />
+    <EntitySet Name="tb_ProgramParameters" EntityType="Self.tb_ProgramParameters" Schema="dbo" Table="tb.ProgramParameters" store:Type="Tables" />
+    <EntitySet Name="tb_Resignation" EntityType="Self.tb_Resignation" Schema="dbo" Table="tb.Resignation" store:Type="Tables" />
+    <EntitySet Name="tb_SalaryAdvance" EntityType="Self.tb_SalaryAdvance" Schema="dbo" Table="tb.SalaryAdvance" store:Type="Tables" />
+    <EntitySet Name="tb_SalaryCalculation" EntityType="Self.tb_SalaryCalculation" Schema="dbo" Table="tb.SalaryCalculation" store:Type="Tables" />
+    <EntitySet Name="tb_ShiftType" EntityType="Self.tb_ShiftType" Schema="dbo" Table="tb.ShiftType" store:Type="Tables" />
+    <EntitySet Name="tb_SocialInsurance" EntityType="Self.tb_SocialInsurance" Schema="dbo" Table="tb.SocialInsurance" store:Type="Tables" />
+    <EntitySet Name="EmployeeAllowanceJobDetail" EntityType="Self.EmployeeAllowanceJobDetail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeAllowanceJobDetail].[EmployeeAllowanceJobID] AS [EmployeeAllowanceJobID], 
+    [EmployeeAllowanceJobDetail].[FullName] AS [FullName], 
+    [EmployeeAllowanceJobDetail].[PayPeriodID] AS [PayPeriodID], 
+    [EmployeeAllowanceJobDetail].[Calculation] AS [Calculation]
+    FROM [dbo].[EmployeeAllowanceJobDetail] AS [EmployeeAllowanceJobDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EmployeeDetail" EntityType="Self.EmployeeDetail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeDetail].[EmployeeID] AS [EmployeeID], 
+    [EmployeeDetail].[MiddleName] AS [MiddleName], 
+    [EmployeeDetail].[FirstName] AS [FirstName], 
+    [EmployeeDetail].[FullName] AS [FullName], 
+    [EmployeeDetail].[Gender] AS [Gender], 
+    [EmployeeDetail].[DateOfBirth] AS [DateOfBirth], 
+    [EmployeeDetail].[CitizenIdentification] AS [CitizenIdentification], 
+    [EmployeeDetail].[Phone] AS [Phone], 
+    [EmployeeDetail].[Email] AS [Email], 
+    [EmployeeDetail].[Address] AS [Address], 
+    [EmployeeDetail].[Salary] AS [Salary], 
+    [EmployeeDetail].[ResponsibleSalary] AS [ResponsibleSalary], 
+    [EmployeeDetail].[PositionName] AS [PositionName], 
+    [EmployeeDetail].[DepartmentName] AS [DepartmentName], 
+    [EmployeeDetail].[JoinDate] AS [JoinDate], 
+    [EmployeeDetail].[State] AS [State], 
+    [EmployeeDetail].[CreatedBy] AS [CreatedBy], 
+    [EmployeeDetail].[UpdatedBy] AS [UpdatedBy]
+    FROM [dbo].[EmployeeDetail] AS [EmployeeDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EmplymentContractDetail" EntityType="Self.EmplymentContractDetail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmplymentContractDetail].[EmployeeID] AS [EmployeeID], 
+    [EmplymentContractDetail].[MiddleName] AS [MiddleName], 
+    [EmplymentContractDetail].[FirstName] AS [FirstName], 
+    [EmplymentContractDetail].[FullName] AS [FullName], 
+    [EmplymentContractDetail].[Gender] AS [Gender], 
+    [EmplymentContractDetail].[DateOfBirth] AS [DateOfBirth], 
+    [EmplymentContractDetail].[CitizenIdentification] AS [CitizenIdentification], 
+    [EmplymentContractDetail].[Phone] AS [Phone], 
+    [EmplymentContractDetail].[Email] AS [Email], 
+    [EmplymentContractDetail].[Address] AS [Address], 
+    [EmplymentContractDetail].[Salary] AS [Salary], 
+    [EmplymentContractDetail].[ResponsibleSalary] AS [ResponsibleSalary], 
+    [EmplymentContractDetail].[PositionName] AS [PositionName], 
+    [EmplymentContractDetail].[DepartmentName] AS [DepartmentName], 
+    [EmplymentContractDetail].[JoinDate] AS [JoinDate], 
+    [EmplymentContractDetail].[State] AS [State], 
+    [EmplymentContractDetail].[CreatedBy] AS [CreatedBy], 
+    [EmplymentContractDetail].[UpdatedBy] AS [UpdatedBy], 
+    [EmplymentContractDetail].[EmploymentContracID] AS [EmploymentContracID], 
+    [EmplymentContractDetail].[ContractDuration] AS [ContractDuration], 
+    [EmplymentContractDetail].[ContractSignCount] AS [ContractSignCount], 
+    [EmplymentContractDetail].[ContractEndDate] AS [ContractEndDate]
+    FROM [dbo].[EmplymentContractDetail] AS [EmplymentContractDetail]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tb_AccountPermission_tb_Account" Association="Self.FK_tb_AccountPermission_tb_Account">
+      <End Role="tb_Account" EntitySet="tb_Account" />
+      <End Role="tb_AccountPermission" EntitySet="tb_AccountPermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeeAllowanceJob_tb_PayPeriod" Association="Self.FK_tb_EmployeeAllowanceJob_tb_PayPeriod">
+      <End Role="tb_PayPeriod" EntitySet="tb_PayPeriod" />
+      <End Role="tb_EmployeeAllowanceJob" EntitySet="tb_EmployeeAllowanceJob" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeeDiscipline_tb_Employee" Association="Self.FK_tb_EmployeeDiscipline_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_EmployeeDiscipline" EntitySet="tb_EmployeeDiscipline" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeePayperiod_tb_Employee" Association="Self.FK_tb_EmployeePayperiod_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_EmployeePayperiod" EntitySet="tb_EmployeePayperiod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeePayperiod_tb_PayPeriod" Association="Self.FK_tb_EmployeePayperiod_tb_PayPeriod">
+      <End Role="tb_PayPeriod" EntitySet="tb_PayPeriod" />
+      <End Role="tb_EmployeePayperiod" EntitySet="tb_EmployeePayperiod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeePromotion_tb_Employee" Association="Self.FK_tb_EmployeePromotion_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_EmployeePromotionTranfer" EntitySet="tb_EmployeePromotionTranfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeePromotionTranfer_tb_Department" Association="Self.FK_tb_EmployeePromotionTranfer_tb_Department">
+      <End Role="tb_Department" EntitySet="tb_Department" />
+      <End Role="tb_EmployeePromotionTranfer" EntitySet="tb_EmployeePromotionTranfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeePromotionTranfer_tb_Position" Association="Self.FK_tb_EmployeePromotionTranfer_tb_Position">
+      <End Role="tb_Position" EntitySet="tb_Position" />
+      <End Role="tb_EmployeePromotionTranfer" EntitySet="tb_EmployeePromotionTranfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeeReward_tb_Employee" Association="Self.FK_tb_EmployeeReward_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_EmployeeReward" EntitySet="tb_EmployeeReward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeeReward_tb_PayPeriod" Association="Self.FK_tb_EmployeeReward_tb_PayPeriod">
+      <End Role="tb_PayPeriod" EntitySet="tb_PayPeriod" />
+      <End Role="tb_EmployeeReward" EntitySet="tb_EmployeeReward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmployeeSalaryIncrease_tb_Employee" Association="Self.FK_tb_EmployeeSalaryIncrease_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_EmployeeSalaryIncrease" EntitySet="tb_EmployeeSalaryIncrease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_EmplymentContract_tb_Employee" Association="Self.FK_tb_EmplymentContract_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_EmplymentContract" EntitySet="tb_EmplymentContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_HealthInsurance_tb_Employee" Association="Self.FK_tb_HealthInsurance_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_HealthInsurance" EntitySet="tb_HealthInsurance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_PermissionList_tb_AccountPermission" Association="Self.FK_tb_PermissionList_tb_AccountPermission">
+      <End Role="tb_AccountPermission" EntitySet="tb_AccountPermission" />
+      <End Role="tb_PermissionList" EntitySet="tb_PermissionList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Resignation_tb_Employee" Association="Self.FK_tb_Resignation_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_Resignation" EntitySet="tb_Resignation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_SalaryAdvance_tb_Employee" Association="Self.FK_tb_SalaryAdvance_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_SalaryAdvance" EntitySet="tb_SalaryAdvance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_SalaryAdvance_tb_PayPeriod" Association="Self.FK_tb_SalaryAdvance_tb_PayPeriod">
+      <End Role="tb_PayPeriod" EntitySet="tb_PayPeriod" />
+      <End Role="tb_SalaryAdvance" EntitySet="tb_SalaryAdvance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_SalaryCalculation_tb_Employee" Association="Self.FK_tb_SalaryCalculation_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_SalaryCalculation" EntitySet="tb_SalaryCalculation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_SocialInsurance_tb_Employee" Association="Self.FK_tb_SocialInsurance_tb_Employee">
+      <End Role="tb_Employee" EntitySet="tb_Employee" />
+      <End Role="tb_SocialInsurance" EntitySet="tb_SocialInsurance" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -115,6 +115,10 @@ namespace QUANLYNHANSU
                 {
                     MessageBox.Show("vui lòng chọn ID khác ID này đã có người sử dụng");
                 }
+                else if (BHXHBUS.ResignationIDExists(cbb_MaNhanVien.Text))
+                {
+                    MessageBox.Show("vui lòng chọn ID nhân viên khác ID nhân viên này đã có người sử dụng");
+                }
                 else
                 {
 

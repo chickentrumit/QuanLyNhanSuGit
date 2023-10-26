@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYNHANSUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_AllowanceJob">
+    <Key>
+      <PropertyRef Name="AllowanceJobID" />
+    </Key>
+    <Property Name="AllowanceJobID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AllowanceJobName" Type="nvarchar" MaxLength="40" />
+    <Property Name="AllowanceAmount" Type="int" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="UpdatedDate" Type="smalldatetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="25" />
+    <Property Name="DeletedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityContainer Name="QUANLYNHANSUModelStoreContainer">
+    <EntitySet Name="tb_AllowanceJob" EntityType="Self.tb_AllowanceJob" Schema="dbo" Table="tb.AllowanceJob" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
